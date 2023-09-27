@@ -1,7 +1,6 @@
-import { Text, TextInput, View, StyleSheet } from "react-native";
+import { Text, TextInput, Button, View, StyleSheet } from "react-native";
 import React, { useState } from "react";
-import { Button } from "react-native-paper";
-import * as React from 'react-native-paper';
+
 
 const input = () => {
     const [input1, setInput1] = useState('');
@@ -10,20 +9,30 @@ const input = () => {
     const [cliques, setCliques] = useState(0);
 
     return (
-        <View style={{marginTop: 340, }}>
-            <Text style={{marginLeft: 140,}}>Cadastrar Usuário</Text>
+        <View style={{ marginTop: 320, }}>
+            <Text style={{ marginLeft: 103, fontWeight: 'bold', fontSize: 20,}}>Cadastrar Usuário</Text>
 
             <TextInput onChangeText={(texto1) => setInput1(texto1)}
                 defaultValue={input1} placeholder="Coloque seu nome..."
                 style={{
-                    marginTop: 10,
+                    marginTop: 30,
+                    borderWidth: 1,
+                    borderColor: '#000',
+                    width: 200,
+                    marginLeft: 100
+
                 }}
+
             />
 
             <TextInput onChangeText={(texto2) => setInput2(texto2)}
                 defaultValue={input2} placeholder="Coloque seu Email..."
                 style={{
                     marginTop: 10,
+                    borderWidth: 1,
+                    borderColor: '#000',
+                    width: 200,
+                    marginLeft: 100
                 }}
             />
 
@@ -31,13 +40,26 @@ const input = () => {
                 defaultValue={input3} placeholder="Coloque sua Senha..."
                 style={{
                     marginTop: 10,
+                    borderWidth: 1,
+                    borderColor: '#000',
+                    width: 200,
+                    marginLeft: 100
                 }}
             />
 
-            <Button title="Cadastrar" onPress={() => {
-                setCliques();
-            }}
-            />
+            <View style={{
+                marginTop: 20, 
+                width: 200,
+                marginLeft: 100,
+                
+
+                }}>
+                <Button title="Cadastrar" onPress={() => {
+                    setCliques();
+                }}
+                    />
+
+            </View>
 
         </View>
     );
