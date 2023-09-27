@@ -1,14 +1,13 @@
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View } from 'react-native';
-import telaLogin from "./telaLogin";
-import telaReceitas from "./telaReceitas";
+import TelaLogin from "./TelaLogin";
+import TelaReceitas from "./TelaReceitas";
 
 function App() {
   return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
+    <PaperProvider>
+          <TelaReceitas/>
+    </PaperProvider>
   );
 }
 
@@ -21,4 +20,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default telaLogin;
+export default TelaReceitas;
