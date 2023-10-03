@@ -1,14 +1,24 @@
 import React from "react";
 import { Appbar, PaperProvider, Text, } from 'react-native-paper';
 import { View, FlatList } from "react-native";
+import { useFonts, Roboto_400Regular } from "@expo-google-fonts/roboto";
 
 
 const Receitas = () => {
+
+    let [fontsLoaded, fontError] = useFonts({
+        Roboto_400Regular,
+    });
+
+    if (!fontsLoaded && !fontError) {
+        return null;
+    }
+
     return (
         <PaperProvider>
             <View>
-                <Appbar.Header style={{ backgroundColor: '#F88B62'}}>
-                    <Appbar.Content style={{color: 'FFEFC1'}} title="Receita na Mão" />
+                <Appbar.Header style={{ backgroundColor: '#F88B62', color: '#FFEFC1' }}>
+                    <Appbar.Content title="Receita na Mão" />
                 </Appbar.Header>
             </View>
 
