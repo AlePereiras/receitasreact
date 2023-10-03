@@ -32,46 +32,41 @@ const Receitas = () => {
 
                 }}>Destaques</Text>
             </View>
-
             <View>
-                <Image source={require('./img/imagem1.png')}></Image>
+                <FlatListBasics></FlatListBasics>
             </View>
+
         </PaperProvider>
-
     )
-
-    const RECEITAS = [
-        { nome: Receita1, imagem: '' },
-        { nome: Receita2, imagem: '' },
-        { nome: Receita3, imagem: '' },
-        { nome: Receita4, imagem: '' },
-    ];
-
-
-    const Receita = ({ nome, imagem }) => {
-        return (
-            <View>
-                <Text>(nome.toUpperCase())</Text>
-                <Text>{imagem}</Text>
-            </View>
-
-        );
-    }
-
-    const FlatListBasics = () => {
-        return (
-            <View>
-                <FlatList
-                    data={RECEITAS}
-                    renderItem={({ item }) =>
-                        <Receita nome={item.nome} imagem={item.imagem} />
-                    }
-                />
-            </View>
-        );
-    };
-
-
 }
+const Receita = ({ imagem, nome }) => {
+    return (
+        <View style={{ marginTop: 60, marginLeft: 45 }}>
+            <Image style={{ width: 100, height: 63, }} source={{ uri: imagem }}></Image>
+            <Text style={{ fontFamily: 'Roboto_400Regular', width: 100, height: 35, fontSize: 10, backgroundColor: '#FDD6A9', borderBottomLeftRadius: 10, borderBottomRightRadius: 10, color: '#F88B62' }}>{nome}</Text>
+        </View>
+    )
+};
+
+const RECEITAS = [
+    { imagem: 'https://raw.githubusercontent.com/AlePereiras/receitasreact/master/img/imagem1.png', nome: 'Macarrão á Bolonhesa' },
+    { imagem: 'https://raw.githubusercontent.com/AlePereiras/receitasreact/master/img/imagem1.png', nome: 'Macarrão á Bolonhesa' },
+    { imagem: 'https://raw.githubusercontent.com/AlePereiras/receitasreact/master/img/imagem1.png', nome: 'Macarrão á Bolonhesa' },
+    { imagem: 'https://raw.githubusercontent.com/AlePereiras/receitasreact/master/img/imagem1.png', nome: 'Macarrão á Bolonhesa' },
+];
+
+const FlatListBasics = () => {
+    return (
+        <View>
+            <FlatList
+                data={RECEITAS}
+                renderItem={({ item }) =>
+                    <Receita imagem={item.imagem} nome={item.nome} />
+                }
+            />
+        </View>
+    )
+};
 
 export default Receitas;
+
