@@ -7,8 +7,8 @@ const Receitas = () => {
     return (
         <PaperProvider>
             <View>
-                <Appbar.Header style={{ backgroundColor: '#F88B62' }}>
-                    <Appbar.Content title="Receita na Mão" />
+                <Appbar.Header style={{ backgroundColor: '#F88B62'}}>
+                    <Appbar.Content style={{color: 'FFEFC1'}} title="Receita na Mão" />
                 </Appbar.Header>
             </View>
 
@@ -17,8 +17,9 @@ const Receitas = () => {
                 <Text style={{
                     fontWeight: 'bold',
                     fontSize: 20,
-                    marginLeft: 20,
+                    marginLeft: 15,
                     marginTop: 20,
+                    color: '#F88B62'
 
                 }}>Destaques</Text>
             </View>
