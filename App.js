@@ -4,4 +4,4 @@ import TelaLogin from "./TelaLogin";
 import TelaReceitas from "./TelaReceitas";
 
 
-export default TelaReceitas;
+export default TelaLogin;

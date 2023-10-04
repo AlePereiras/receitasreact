@@ -1,6 +1,7 @@
-import { Text, TextInput, Button, View, TouchableOpacity, } from "react-native";
+import { Text, TextInput, View, TouchableOpacity, } from "react-native";
 import React, { useState } from "react";
 import { useFonts, Roboto_400Regular } from '@expo-google-fonts/roboto';
+import { AvatarImageProps } from 'react-native-paper';
 
 
 const input = () => {
@@ -18,7 +19,11 @@ const input = () => {
 
 
     return (
+
         <View style={{ flex: 1, backgroundColor: '#FFEFC1' }}>
+
+            <Avatar.Image size={24} source={require('')} />
+
             <View style={{ flex: 1, justifyContent: 'center' }}>
 
                 <Text style={{ marginLeft: 105, fontSize: 20, color: '#F88B62', fontFamily: 'Roboto_400Regular' }}>Cadastrar Conta</Text>
