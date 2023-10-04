@@ -34,6 +34,7 @@ const input = () => {
                         backgroundColor: '#fff',
                         borderRadius: 6,
                         width: 250,
+                        height: 30,
                         marginLeft: 75
                     }}
 
@@ -46,6 +47,7 @@ const input = () => {
                         backgroundColor: '#fff',
                         borderRadius: 6,
                         width: 250,
+                        height: 30,
                         marginLeft: 75
                     }}
                 />
@@ -57,6 +59,7 @@ const input = () => {
                         backgroundColor: '#fff',
                         borderRadius: 6,
                         width: 250,
+                        height: 30,
                         marginLeft: 75
                     }}
                 />
