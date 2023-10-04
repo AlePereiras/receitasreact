@@ -1,7 +1,7 @@
 import { Text, TextInput, View, TouchableOpacity, } from "react-native";
 import React, { useState } from "react";
 import { useFonts, Roboto_400Regular } from '@expo-google-fonts/roboto';
-import { AvatarImageProps } from 'react-native-paper';
+import { Avatar } from 'react-native-paper';
 
 
 const input = () => {
@@ -22,9 +22,9 @@ const input = () => {
 
         <View style={{ flex: 1, backgroundColor: '#FFEFC1' }}>
 
-            <Avatar.Image size={24} source={require('')} />
+            <Avatar.Image size={40} style={{ marginTop: 50, marginLeft: 25, backgroundColor: '#FFEFC1', }} source={{ uri: 'https://raw.githubusercontent.com/AlePereiras/receitasreact/master/img/seta.png', }} />
 
-            <View style={{ flex: 1, justifyContent: 'center' }}>
+            <View style={{ flex: 1, paddingTop: 200, }}>
 
                 <Text style={{ marginLeft: 105, fontSize: 20, color: '#F88B62', fontFamily: 'Roboto_400Regular' }}>Cadastrar Conta</Text>
                 <Text style={{ marginTop: 30, marginLeft: 75, color: '#F88B62', fontFamily: 'Roboto_400Regular', fontSize: 10, }}>Nome de Usuário:</Text>
