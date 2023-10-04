@@ -43,7 +43,7 @@ const Receitas = () => {
 const Receita = ({ imagem, nome, favorito }) => {
     return (
 
-        <View style={{ marginTop: 55, marginLeft: 45, borderWidth: 1, borderColor: 'black' }}>
+        <View style={{ marginTop: 45, marginLeft: 45, }}>
 
             <Image style={{ width: 315, height: 195, }} source={{ uri: imagem }}></Image>
 
@@ -81,7 +81,7 @@ const RECEITAS = [
 
 const FlatListBasics = () => {
     return (
-        <View style={{ borderWidth: 1, borderColor: 'black' }}>
+        <View>
             <FlatList
                 data={RECEITAS}
                 renderItem={({ item }) =>
