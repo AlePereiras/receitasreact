@@ -1,13 +1,14 @@
 import React from "react";
-import { Appbar, PaperProvider, Text, } from 'react-native-paper';
+import { Appbar, PaperProvider, Text, Avatar } from 'react-native-paper';
 import { View, FlatList, Image } from "react-native";
-import { useFonts, Roboto_400Regular } from "@expo-google-fonts/roboto";
+import { useFonts, Roboto_400Regular, Roboto_500Medium } from "@expo-google-fonts/roboto";
 
 
 const Receitas = () => {
 
     let [fontsLoaded, fontError] = useFonts({
         Roboto_400Regular,
+        Roboto_500Medium,
     });
 
     if (!fontsLoaded && !fontError) {
@@ -22,13 +23,13 @@ const Receitas = () => {
                 </Appbar.Header>
             </View>
 
-            <View>
+            <View >
                 <Text style={{
                     fontSize: 20,
                     marginLeft: 16,
                     marginTop: 20,
                     color: '#F88B62',
-                    fontFamily: 'Roboto_400Regular',
+                    fontFamily: 'Roboto_500Medium',
 
                 }}>Destaques</Text>
             </View>
@@ -39,46 +40,52 @@ const Receitas = () => {
         </PaperProvider>
     )
 }
-const Receita = ({ imagem, nome }) => {
+const Receita = ({ imagem, nome, favorito }) => {
     return (
 
-        <View style={{ marginTop: 55, marginLeft: 45, }}>
+        <View style={{ marginTop: 55, marginLeft: 45, borderWidth: 1, borderColor: 'black' }}>
 
             <Image style={{ width: 315, height: 195, }} source={{ uri: imagem }}></Image>
 
-            <Text style={{
+            <View style={{ flexDirection: 'row' }}>
+                <Text style={{
 
-                fontFamily: 'Roboto_400Regular',
-                width: 315,
-                height: 55,
-                fontSize: 15,
-                paddingTop: 12,
-                paddingLeft: 5,
-                backgroundColor: '#FDD6A9',
-                borderBottomLeftRadius: 10,
-                borderBottomRightRadius: 10,
-                color: '#F88B62'
+                    fontFamily: 'Roboto_500Medium',
+                    width: 231,
+                    height: 85,
+                    fontSize: 20,
+                    paddingTop: 10,
+                    paddingLeft: 10,
+                    backgroundColor: '#FDD6A9',
+                    borderBottomLeftRadius: 10,
+                    // borderBottomRightRadius: 10,
+                    color: '#F88B62',
 
-            }}>{nome}</Text>
+
+                }}>{nome}  </Text>
+
+                <Image style={{ width: 84, height: 85, backgroundColor: '#FDD6A9', borderBottomRightRadius: 10, }} source={{ uri: favorito }}></Image>
+
+            </View>
 
         </View>
     )
 };
 
 const RECEITAS = [
-    { imagem: 'https://raw.githubusercontent.com/AlePereiras/receitasreact/master/img/imagem1.png', nome: 'Macarrão á Bolonhesa' },
-    { imagem: 'https://raw.githubusercontent.com/AlePereiras/receitasreact/master/img/imagem1.png', nome: 'Macarrão á Bolonhesa' },
-    { imagem: 'https://raw.githubusercontent.com/AlePereiras/receitasreact/master/img/imagem1.png', nome: 'Macarrão á Bolonhesa' },
-    { imagem: 'https://raw.githubusercontent.com/AlePereiras/receitasreact/master/img/imagem1.png', nome: 'Macarrão á Bolonhesa' },
+    { imagem: 'https://raw.githubusercontent.com/AlePereiras/receitasreact/master/img/imagem1.png', nome: 'Macarrão á Bolonhesa', favorito: 'https://raw.githubusercontent.com/AlePereiras/receitasreact/master/img/heart.png' },
+    { imagem: 'https://raw.githubusercontent.com/AlePereiras/receitasreact/master/img/imagem1.png', nome: 'Macarrão á Bolonhesa', favorito: 'https://raw.githubusercontent.com/AlePereiras/receitasreact/master/img/heart.png' },
+    { imagem: 'https://raw.githubusercontent.com/AlePereiras/receitasreact/master/img/imagem1.png', nome: 'Macarrão á Bolonhesa', favorito: 'https://raw.githubusercontent.com/AlePereiras/receitasreact/master/img/heart.png' },
+    { imagem: 'https://raw.githubusercontent.com/AlePereiras/receitasreact/master/img/imagem1.png', nome: 'Macarrão á Bolonhesa', favorito: 'https://raw.githubusercontent.com/AlePereiras/receitasreact/master/img/heart.png' },
 ];
 
 const FlatListBasics = () => {
     return (
-        <View>
+        <View style={{ borderWidth: 1, borderColor: 'black' }}>
             <FlatList
                 data={RECEITAS}
                 renderItem={({ item }) =>
-                    <Receita imagem={item.imagem} nome={item.nome} />
+                    <Receita imagem={item.imagem} nome={item.nome} favorito={item.favorito} />
                 }
             />
         </View>
