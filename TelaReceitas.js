@@ -41,18 +41,18 @@ const Receitas = () => {
 }
 const Receita = ({ imagem, nome }) => {
     return (
-        <View style={{ marginTop: 60, marginLeft: 45, flexDirection: 'row' }}>
-            <Image style={{ width: 100, height: 63, }} source={{ uri: imagem }}></Image>
-            <Text style={{ fontFamily: 'Roboto_400Regular', width: 100, height: 35, fontSize: 10, backgroundColor: '#FDD6A9', borderBottomLeftRadius: 10, borderBottomRightRadius: 10, color: '#F88B62' }}>{nome}</Text>
+        <View style={{ marginTop: 55, marginLeft: 45, }}>
+            <Image style={{ width: 315, height: 195, }} source={{ uri: imagem }}></Image>
+            <Text style={{ fontFamily: 'Roboto_400Regular', width: 315, height: 55, fontSize: 15, paddingTop: 12, paddingLeft: 5, backgroundColor: '#FDD6A9', borderBottomLeftRadius: 10, borderBottomRightRadius: 10, color: '#F88B62' }}>{nome}</Text>
         </View>
     )
 };
 
 const RECEITAS = [
     { imagem: 'https://raw.githubusercontent.com/AlePereiras/receitasreact/master/img/imagem1.png', nome: 'Macarrão á Bolonhesa' },
-    { imagem: 'https://raw.githubusercontent.com/AlePereiras/receitasreact/master/img/imagem1.png', nome: 'Macarrão á Bolonhesa' },
-    { imagem: 'https://raw.githubusercontent.com/AlePereiras/receitasreact/master/img/imagem1.png', nome: 'Macarrão á Bolonhesa' },
-    { imagem: 'https://raw.githubusercontent.com/AlePereiras/receitasreact/master/img/imagem1.png', nome: 'Macarrão á Bolonhesa' },
+    //  { imagem: 'https://raw.githubusercontent.com/AlePereiras/receitasreact/master/img/imagem1.png', nome: 'Macarrão á Bolonhesa' },
+    // { imagem: 'https://raw.githubusercontent.com/AlePereiras/receitasreact/master/img/imagem1.png', nome: 'Macarrão á Bolonhesa' },
+    // { imagem: 'https://raw.githubusercontent.com/AlePereiras/receitasreact/master/img/imagem1.png', nome: 'Macarrão á Bolonhesa' },
 ];
 
 const FlatListBasics = () => {
