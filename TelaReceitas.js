@@ -1,6 +1,6 @@
 import React from "react";
 import { Appbar, PaperProvider, Text, Avatar } from 'react-native-paper';
-import { View, FlatList, Image } from "react-native";
+import { View, FlatList, Image, ActivityIndicator } from "react-native";
 import { useFonts, Roboto_400Regular, Roboto_500Medium } from "@expo-google-fonts/roboto";
 
 
