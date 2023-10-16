@@ -33,9 +33,8 @@ const Receitas = () => {
 
                 }}>Destaques</Text>
             </View>
-            <View>
-                <Receita></Receita>
-            </View>
+
+            <Receita></Receita>
 
         </PaperProvider>
     )
@@ -58,7 +57,6 @@ const Receita = () => {
     };
 
     useEffect(() => {
-
         getReceitas();
     }, []);
 
