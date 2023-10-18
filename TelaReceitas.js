@@ -33,7 +33,7 @@ const Receitas = () => {
 
                 }}>Destaques</Text>
             </View>
-
+                
             <Receita></Receita>
 
         </PaperProvider>
@@ -80,7 +80,7 @@ const Receita = () => {
 };
 
 
-
+export default Receitas;
 
 
 // const Receita = ({ imagem, nome, favorito }) => {
@@ -136,5 +136,5 @@ const Receita = () => {
 // };
 
 
-export default Receitas;
+
 
