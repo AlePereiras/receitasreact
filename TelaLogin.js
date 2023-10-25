@@ -1,8 +1,6 @@
 import { Text, TextInput, View, TouchableOpacity, } from "react-native";
 import React, { useState } from "react";
 import { useFonts, Roboto_500Medium } from '@expo-google-fonts/roboto';
-import { Avatar } from 'react-native-paper';
-
 
 const input = () => {
     const [input1, setInput1] = useState('');
@@ -22,7 +20,7 @@ const input = () => {
 
         <View style={{ flex: 1, backgroundColor: '#FFEFC1' }}>
 
-            <Avatar.Image size={40} style={{ marginTop: 50, marginLeft: 25, backgroundColor: '#FFEFC1', }} source={{ uri: 'https://raw.githubusercontent.com/AlePereiras/receitasreact/master/img/seta.png', }} />
+            {/* <Avatar.Image size={40} style={{ marginTop: 50, marginLeft: 25, backgroundColor: '#FFEFC1', }} source={{ uri: 'https://raw.githubusercontent.com/AlePereiras/receitasreact/master/img/seta.png', }} /> */}
 
             <View style={{ flex: 1, paddingTop: 200, }}>
 
@@ -79,5 +77,7 @@ const input = () => {
         </View>
     );
 }
+
+
 
 export default input;

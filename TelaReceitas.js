@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { Appbar, PaperProvider, Text, Avatar } from 'react-native-paper';
-import { View, FlatList, Image, ActivityIndicator } from "react-native";
+import { View, FlatList, Image, ActivityIndicator, Pressable } from "react-native";
 import { useFonts, Roboto_400Regular, Roboto_500Medium } from "@expo-google-fonts/roboto";
+import { useNavigation } from "@react-navigation/native";
 
 
 const Receitas = () => {
@@ -40,9 +41,11 @@ const Receitas = () => {
     )
 }
 
-const Receita = ({ imagem, nome, favorito }) => {
-    return (
+const Receita = ({ imagem, nome, favorito}) => {
+    const navigation = useNavigation();
 
+    return (
+        <Pressable onPress={() => navigation.navigate('Segunda')}>
         <View style={{ marginTop: 45, marginLeft: 45, }}>
 
             <Image style={{ width: 315, height: 195, }} source={{ uri: imagem }}></Image>
@@ -69,14 +72,15 @@ const Receita = ({ imagem, nome, favorito }) => {
             </View>
 
         </View>
+        </Pressable>
     )
 };
 
 const RECEITAS = [
     { imagem: 'https://raw.githubusercontent.com/AlePereiras/receitasreact/master/img/imagem1.png', nome: 'Macarrão á Bolonhesa', favorito: 'https://raw.githubusercontent.com/AlePereiras/receitasreact/master/img/heart.png' },
-    { imagem: 'https://raw.githubusercontent.com/AlePereiras/receitasreact/master/img/imagem1.png', nome: 'Macarrão á Bolonhesa', favorito: 'https://raw.githubusercontent.com/AlePereiras/receitasreact/master/img/heart.png' },
-    { imagem: 'https://raw.githubusercontent.com/AlePereiras/receitasreact/master/img/imagem1.png', nome: 'Macarrão á Bolonhesa', favorito: 'https://raw.githubusercontent.com/AlePereiras/receitasreact/master/img/heart.png' },
-    { imagem: 'https://raw.githubusercontent.com/AlePereiras/receitasreact/master/img/imagem1.png', nome: 'Macarrão á Bolonhesa', favorito: 'https://raw.githubusercontent.com/AlePereiras/receitasreact/master/img/heart.png' },
+    // { imagem: 'https://raw.githubusercontent.com/AlePereiras/receitasreact/master/img/imagem1.png', nome: 'Macarrão á Bolonhesa', favorito: 'https://raw.githubusercontent.com/AlePereiras/receitasreact/master/img/heart.png' },
+    // { imagem: 'https://raw.githubusercontent.com/AlePereiras/receitasreact/master/img/imagem1.png', nome: 'Macarrão á Bolonhesa', favorito: 'https://raw.githubusercontent.com/AlePereiras/receitasreact/master/img/heart.png' },
+    // { imagem: 'https://raw.githubusercontent.com/AlePereiras/receitasreact/master/img/imagem1.png', nome: 'Macarrão á Bolonhesa', favorito: 'https://raw.githubusercontent.com/AlePereiras/receitasreact/master/img/heart.png' },
 ];
 
 const FlatListBasics = () => {
