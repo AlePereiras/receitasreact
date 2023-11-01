@@ -11,9 +11,12 @@
   "dependencies": {
     "@expo-google-fonts/inter": "^0.2.3",
     "@expo-google-fonts/roboto": "^0.2.3",
+    "@expo-google-fonts/roboto-flex": "^0.2.3",
+    "@expo-google-fonts/roboto-mono": "^0.2.3",
     "@react-navigation/native": "^6.1.9",
     "@react-navigation/native-stack": "^6.9.16",
     "expo": "~49.0.12",
+    "expo-app-loading": "^2.1.1",
     "expo-font": "~11.4.0",
     "expo-status-bar": "~1.6.0",
     "react": "18.2.0",

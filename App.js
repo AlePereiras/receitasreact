@@ -27,7 +27,7 @@ function App(){
         <NavigationContainer>
             <Stack.Navigator initialRouteName="Primeira">
                 <Stack.Screen name="Primeiras" component={Primeira} options={{headerShown: false}} />
-                <Stack.Screen name="Segunda" component={Segunda} options={{title: "", headerShadowVisible: false, headerStyle: {backgroundColor: '#FFEFC1'}}} />
+                <Stack.Screen name="Segunda" component={Segunda} options={{title: "", headerShadowVisible: false, headerStyle: {backgroundColor: '#33241F',}, headerTintColor: '#F78B63'}} />
             </Stack.Navigator>
         </NavigationContainer>
     )
