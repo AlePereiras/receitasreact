@@ -74,7 +74,7 @@ const Receita = () => {
                     keyExtractor={({ id }) => id}
                     renderItem={({ item }) => (
                         <Text>
-                            {item.imagem}, {item.nomeReceita}
+                            {item.imagem}, {item.nomeReceita}, {item.descricao}, {item.ingredientes}, {item.modoFazer}
                         </Text>
                     )}
                 />
