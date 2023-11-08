@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
-import { Appbar, PaperProvider, Text, Avatar } from 'react-native-paper';
-import { View, FlatList, Image, ActivityIndicator, Pressable } from "react-native";
+import { Appbar, PaperProvider, Text, Avatar, Card } from 'react-native-paper';
+import { View, FlatList, Image, ActivityIndicator, Pressable, StyleSheet } from "react-native";
 import { useFonts, Roboto_400Regular, Roboto_500Medium} from "@expo-google-fonts/roboto"  ;
 import { useNavigation } from "@react-navigation/native";
 
@@ -22,14 +22,14 @@ const Receitas = () => {
         <PaperProvider>
             <View>
                 <Appbar.Header style={{ backgroundColor: '#F88B62', }}>
-                    <Appbar.Content color="#33241F" title="Receita na Mão" titleStyle={{ fontFamily: 'Roboto_500Medium', fontSize: 20 }} />
+                    <Appbar.Content color="#33241F" title="Receita na Mão" titleStyle={{ fontFamily: 'Roboto_500Medium', fontSize: 20, marginLeft: 8 }} />
                 </Appbar.Header>
             </View>
 
             <View >
                 <Text style={{
                     fontSize: 20,
-                    marginLeft: 16,
+                    marginLeft: 24,
                     marginTop: 20,
                     color: '#33241F',
                     fontFamily: 'Roboto_400Regular',
@@ -73,14 +73,45 @@ const Receita = () => {
                     data={receitas}
                     keyExtractor={({ id }) => id}
                     renderItem={({ item }) => (
-                        return(
-                         <View>                           
-                            <Image source={item.imagem}></Image>
-                        <Text>
-                         {item.nomeReceita}, {item.descricao}, {item.ingredientes}, {item.modoFazer}
-                        </Text>
+                        
+                         <View>      
+                            
+                          <Card style={{
+                            backgroundColor: '#33241F',  
+                            borderBottomLeftRadius: 4, 
+                            borderBottomEndRadius: 4
+                            
+                            }}>
+
+                            <Card.Cover source={{ uri: item.imagem}} 
+                            style={{
+                                width: 364, 
+                                height: 260, 
+                                borderTopEndRadius: 4, 
+                                borderTopLeftRadius: 4, 
+                                borderBottomLeftRadius: 0, 
+                                borderBottomEndRadius: 0
+                                
+                                }}/>
+
+                            <View style={{flex: 1, flexDirection: 'row'}}>
+                            <Card.Title title={item.nomeReceita}  
+                            titleStyle={{
+                                color: '#F78B63', 
+                                fontSize: 19, 
+                                fontWeight: 400,
+                                fontFamily: 'Roboto_400Regular'
+                                }}/>
+
+                            <Avatar.Icon icon="heart" color="#F78B63" size={50} style={{
+                                backgroundColor: '#33241F'
+                                
+                                }}/> 
+                            </View>
+
+                        </Card>
+
                         </View>
-                        )
                     )}
                 />
             )}
