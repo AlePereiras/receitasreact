@@ -71,7 +71,7 @@ const Receita = () => {
         return(
                             <View>
                                 <Card
-                                onPress={() => navigation.navigate('Segundas', {id: id})}
+                                onPress={() => navigation.navigate('Receita', {id: id})}
                                 style={{
                                     backgroundColor: '#33241F',
                                     borderBottomLeftRadius: 4,
