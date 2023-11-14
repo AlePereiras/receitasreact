@@ -5,7 +5,6 @@ import { useFonts, Roboto_400Regular, Roboto_500Medium} from "@expo-google-fonts
 import { useNavigation } from "@react-navigation/native";
 
 
-
 const Receitas = () => {
 
     let [fontsLoaded, fontError] = useFonts({
@@ -37,16 +36,17 @@ const Receitas = () => {
                 }}>Destaques</Text>
             </View>
                 
-            {/* <FlatListBasics></FlatListBasics> */}
     <Receita></Receita>
 
         </PaperProvider>
     )
 }
 
-const Receita = () => {
-    const [isLoading, setLoading] = useState(true);
+const Receita = () => { 
+
+    const [isLoading, setLoading] = useState(false);
     const [receitas, setReceitas] = useState([]);
+    const navigation = useNavigation()
 
     const getReceitas = async () => {
         try {
@@ -64,56 +64,69 @@ const Receita = () => {
         getReceitas();
     }, []);
 
+    
+
+    function CardReceita({imagem, nomeReceita, navigation, id}){
+    
+        return(
+                            <View>
+                                <Card
+                                onPress={() => navigation.navigate('Segundas', {id: id})}
+                                style={{
+                                    backgroundColor: '#33241F',
+                                    borderBottomLeftRadius: 4,
+                                    borderBottomEndRadius: 4,
+                                    marginVertical: 9,
+                                }}>
+
+                                    <Card.Cover source={{ uri: imagem }}
+                                        style={{
+                                            width: 364,
+                                            height: 260,
+                                            borderTopEndRadius: 4,
+                                            borderTopLeftRadius: 4,
+                                        }} />
+
+                                    <View style={{flex: 1, flexDirection: 'row', justifyContent: 'space-between', padding: 5, alignItems: 'center'}}>
+
+                                            <View>
+                                            <Text
+                                                style={{
+                                                    color: '#F78B63',
+                                                    fontSize: 19,
+                                                    fontWeight: 400,
+                                                    fontFamily: 'Roboto_400Regular',
+                                                    
+                                                }} >{nomeReceita}</Text>
+                                            </View>
+
+                                        <View>
+                                        <Avatar.Icon icon="heart" color="#F78B63" size={50} style={{
+                                            backgroundColor: '#33241F',
+                                        }} />
+                                    </View>
+
+                                    </View>
+
+                                </Card>
+
+                            </View>
+        )
+    }
+
     return (
         <View style={{ flex: 1, padding: 24 }}>
             {isLoading ? (
                 <ActivityIndicator />
             ) : (
+
+            
                 <FlatList
-                    data={receitas}
-                    keyExtractor={({ id }) => id}
-                    renderItem={({ item }) => (
-                        
-                         <View>      
-                            
-                          <Card style={{
-                            backgroundColor: '#33241F',  
-                            borderBottomLeftRadius: 4, 
-                            borderBottomEndRadius: 4
-                            
-                            }}>
-
-                            <Card.Cover source={{ uri: item.imagem}} 
-                            style={{
-                                width: 364, 
-                                height: 260, 
-                                borderTopEndRadius: 4, 
-                                borderTopLeftRadius: 4, 
-                                borderBottomLeftRadius: 0, 
-                                borderBottomEndRadius: 0
-                                
-                                }}/>
-
-                            <View style={{flex: 1, flexDirection: 'row'}}>
-                            <Card.Title title={item.nomeReceita}  
-                            titleStyle={{
-                                color: '#F78B63', 
-                                fontSize: 19, 
-                                fontWeight: 400,
-                                fontFamily: 'Roboto_400Regular'
-                                }}/>
-
-                            <Avatar.Icon icon="heart" color="#F78B63" size={50} style={{
-                                backgroundColor: '#33241F'
-                                
-                                }}/> 
-                            </View>
-
-                        </Card>
-
-                        </View>
-                    )}
-                />
+                        data={receitas}
+                        keyExtractor={({ id }) => id}
+                        renderItem={({ item,index }) => (
+                            <CardReceita navigation={navigation} id={item.id} key={index} imagem={item.imagem} nomeReceita={item.nomeReceita}/>
+                        )} />
             )}
         </View>
     );
