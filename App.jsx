@@ -12,13 +12,23 @@ function App(){
     return (
         <NavigationContainer>
             <Stack.Navigator initialRouteName="Receitas">
+
                 <Stack.Screen name="Receitas" component={TelaReceitas} options={{headerShown: false}} />
+
                 <Stack.Screen name="Receita" component={TelaIngredientes} options={{
-                    title: "", 
+                    title: "Receita na Mão", 
                     headerShadowVisible: false, 
-                    headerStyle: {backgroundColor: '#33241F',}, 
-                    headerTintColor: '#F78B63'}} />
+                    headerStyle: {backgroundColor: '#F78B63', }, 
+                    headerTintColor: '#33241F'}} />
+                    
+                    <Stack.Screen name="Login" component={TelaLogin} options={{
+                            title: '', 
+                            headerShadowVisible: false, 
+                            headerStyle: {backgroundColor: '#33241F', }, 
+                            headerTintColor: '#33241F'}} />
+
             </Stack.Navigator>
+
         </NavigationContainer>
     )
 }

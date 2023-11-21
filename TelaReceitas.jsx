@@ -3,7 +3,7 @@ import { Appbar, PaperProvider, Text, Avatar, Card } from 'react-native-paper';
 import { View, FlatList, Image, ActivityIndicator, Pressable, StyleSheet } from "react-native";
 import { useFonts, Roboto_400Regular, Roboto_500Medium} from "@expo-google-fonts/roboto"  ;
 import { useNavigation } from "@react-navigation/native";
-
+import urlconfig from "./config.json"
 
 const Receitas = () => {
 
@@ -50,7 +50,8 @@ const Receita = () => {
 
     const getReceitas = async () => {
         try {
-            const response = await fetch('https://receitas-pweb2.onrender.com/receitas');
+            const response = await fetch(`${urlconfig.urlDesenvolvimento}/receitas`);
+             console.log(response)
             const json = await response.json();
             setReceitas(json);
         } catch (error) {
