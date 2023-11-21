@@ -14,7 +14,7 @@
     "@expo-google-fonts/roboto-flex": "^0.2.3",
     "@expo-google-fonts/roboto-mono": "^0.2.3",
     "@react-navigation/native": "^6.1.9",
-    "@react-navigation/native-stack": "^6.9.16",
+    "@react-navigation/native-stack": "^6.9.17",
     "expo": "~49.0.12",
     "expo-app-loading": "^2.1.1",
     "expo-font": "~11.4.0",
