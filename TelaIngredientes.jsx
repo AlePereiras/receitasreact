@@ -2,27 +2,17 @@ import { ActivityIndicator, Text, View, Image } from "react-native";
 import { } from "react-native-paper";
 import { useState, useEffect } from "react";
 import urlconfig from "./config.json";
-import { useFonts, Roboto_400Regular, Roboto_500Medium} from "@expo-google-fonts/roboto";
+import { useFonts, Roboto_400Regular, Roboto_500Medium, Roboto_300Light} from "@expo-google-fonts/roboto";
 // import { useRoute } from "@react-navigation/native";
 // import { useNavigation } from "@react-navigation/native";
 // import Receitas from "./TelaReceitas";
 
 function IngredienteReceita({route}) {
+    
     const { id } = route.params ;
     const [receita, setReceita] = useState(null);
-// console.log(receitas)
-      const getReceita = async () => {
-
-        // let [fontsLoaded, fontError] = useFonts({
-        //     Roboto_400Regular,
-        //     Roboto_500Medium,
-           
-        // });
-    
-        // if (!fontsLoaded && !fontError) {
-        //     return null;
-        // }
-
+    // console.log(receitas)
+    const getReceita = async () => {
         try {
             const response = await fetch(`${urlconfig.urlDesenvolvimento}/receitas/${id}`);
             const json = await response.json()
@@ -41,14 +31,88 @@ function IngredienteReceita({route}) {
     
     function DadosReceita({imagem, nomeReceita, descricao, ingredientes, modoFazer}){
 
-        return  <View style={{flex:1, }}>
-        <Image style={{width:50, height:50}} source={{uri: imagem }}/>
-        <Text>{nomeReceita}</Text>
-        <Text>{descricao}</Text>
-        <Text>{ingredientes}</Text>
-        <Text>{modoFazer}</Text>
+        let [fontsLoaded, fontError] = useFonts({
+            Roboto_400Regular,
+            Roboto_500Medium,
+            Roboto_300Light,
+           
+        });
+    
+        if (!fontsLoaded && !fontError) {
+            return null;
+        }
+
+        return ( 
+        
+        <View style={{flex:1, top: 20, left: 30, }}>
+        
+        <Text style={{
+            fontSize: 16, 
+            fontFamily: 'Roboto_400Regular', 
+            fontWeight: 400, 
+            color: '#33241F'
+            
+            }}>{nomeReceita}</Text>
+        
+        <Image style={{
+            width:310, 
+            height:250, 
+            top: 26, 
+            left: 20, 
+            borderRadius: 4,
+            
+            }} source={{uri: imagem }}/>
+        
+        <Text style={{
+            fontSize: 16, 
+            fontFamily: 'Roboto_500Medium', 
+            top: 30, 
+            color: '#33241F'
+            
+            }}>Descrição:</Text>
+        
+        <Text style={{
+            top: 30, 
+            fontSize: 16, 
+            color: '#33241F', 
+            fontFamily: 'Roboto_300Light', 
+            
+            }}>{descricao}</Text>
+        
+        <Text style={{
+            fontSize: 16, 
+            fontFamily: 'Roboto_500Medium', 
+            top: 30, 
+            color: '#33241F'
+            
+            }}>Ingredientes:</Text>
+        
+        <Text style={{
+            top: 30, 
+            fontSize: 16, 
+            color: '#33241F', 
+            fontFamily: 'Roboto_300Light',
+            
+            }}>{ingredientes}</Text>
+        
+        <Text style={{
+            fontSize: 16, 
+            fontFamily: 'Roboto_500Medium', 
+            top: 30, 
+            color: '#33241F'
+            
+            }}>Modo de fazer:</Text>
+        
+        <Text style={{
+            top: 30, 
+            fontSize: 16, 
+            color: '#33241F', 
+            fontFamily: 'Roboto_300Light',
+            
+            }}>{modoFazer}</Text>
+    
     </View>
-      
+      )
     } 
 
     return receita ? (

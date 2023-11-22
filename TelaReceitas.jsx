@@ -2,7 +2,8 @@ import React, { useEffect, useState } from "react";
 import { Appbar, PaperProvider, Text, Avatar, Card } from 'react-native-paper';
 import { View, FlatList, Image, ActivityIndicator, Pressable, StyleSheet } from "react-native";
 import { useFonts, Roboto_400Regular, Roboto_500Medium} from "@expo-google-fonts/roboto"  ;
-import { useNavigation } from "@react-navigation/native";
+import { useNavigation, NavigationContainer } from "@react-navigation/native";
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import urlconfig from "./config.json"
 
 const Receitas = () => {
