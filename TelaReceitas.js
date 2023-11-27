@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Appbar, PaperProvider, Text, Avatar, Card } from 'react-native-paper';
+import { Appbar, PaperProvider, Text, Avatar, Card, IconButton } from 'react-native-paper';
 import { View, FlatList, Image, ActivityIndicator, Pressable, StyleSheet } from "react-native";
 import { useFonts, Roboto_400Regular, Roboto_500Medium} from "@expo-google-fonts/roboto"  ;
 import { useNavigation, NavigationContainer } from "@react-navigation/native";
@@ -103,9 +103,11 @@ const Receita = () => {
                                             </View>
 
                                         <View>
-                                        <Avatar.Icon icon="heart" color="#F78B63" size={50} style={{
-                                            backgroundColor: '#33241F',
-                                        }} />
+                                            <IconButton 
+                                            icon="cards-heart-outline"
+                                            size={40}
+                                            iconColor="#F78B63"
+                                            />
                                     </View>
 
                                     </View>

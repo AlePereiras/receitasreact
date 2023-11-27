@@ -19,9 +19,13 @@ function Pesquisar(){
     return(
         <View style={{
             backgroundColor: '#F78B63', 
-            height: 200, 
-            alignItems: 'center'
-
+            height: 140,
+            width: 409, 
+            alignItems: 'center',
+            borderBottomColor: '#33241F',
+            borderBottomWidth: 2,
+            borderBottomEndRadius: 4,
+            borderBottomLeftRadius: 4,
             }}>
 
             <Text style={{
@@ -34,24 +38,27 @@ function Pesquisar(){
                 
                 }}>Explorar</Text>
             
-            <View>
+            <View style={{
+                flexDirection: 'row', 
+                backgroundColor: '#FFFFFF', 
+                top: 21,  
+                width: 297, 
+                height: 60, 
+                borderRadius: 4  
+            }}>
 
                 <IconButton
                     icon="magnify"
                     size={35}
                     iconColor="#33241F"
+                    style={{
+                    
+                    }}
                 />
 
        <TextInput placeholder="Digite um ingrediente..." 
-       
        style={{
-        backgroundColor: '#FFFFFF', 
         color: '#33241F', 
-        top: 21, 
-        width: 297, 
-        height: 47, 
-        borderRadius: 4 
-        
         }}/>
 
             </View>
