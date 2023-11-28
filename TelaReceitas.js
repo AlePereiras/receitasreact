@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Appbar, PaperProvider, Text, Avatar, Card, IconButton } from 'react-native-paper';
-import { View, FlatList, Image, ActivityIndicator, Pressable, StyleSheet } from "react-native";
-import { useFonts, Roboto_400Regular, Roboto_500Medium} from "@expo-google-fonts/roboto"  ;
+import { View, FlatList, Image, ActivityIndicator, Pressable, StyleSheet, ScrollView } from "react-native";
+import { useFonts, Roboto_400Regular, Roboto_500Medium } from "@expo-google-fonts/roboto";
 import { useNavigation, NavigationContainer } from "@react-navigation/native";
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import urlconfig from "./config.json"
@@ -11,7 +11,7 @@ const Receitas = () => {
     let [fontsLoaded, fontError] = useFonts({
         Roboto_400Regular,
         Roboto_500Medium,
-       
+
     });
 
     if (!fontsLoaded && !fontError) {
@@ -36,14 +36,14 @@ const Receitas = () => {
 
                 }}>Destaques</Text>
             </View>
-                
-    <Receita></Receita>
+
+            <Receita></Receita>
 
         </PaperProvider>
     )
 }
 
-const Receita = () => { 
+const Receita = () => {
 
     const [isLoading, setLoading] = useState(false);
     const [receitas, setReceitas] = useState([]);
@@ -52,7 +52,7 @@ const Receita = () => {
     const getReceitas = async () => {
         try {
             const response = await fetch(`${urlconfig.urlDesenvolvimento}/receitas`);
-             console.log(response)
+            console.log(response)
             const json = await response.json();
             setReceitas(json);
         } catch (error) {
@@ -66,55 +66,62 @@ const Receita = () => {
         getReceitas();
     }, []);
 
-    
 
-    function CardReceita({imagem, nomeReceita, navigation, id}){
-    
-        return(
+
+    function CardReceita({ imagem, nomeReceita, navigation, id }) {
+
+        return (
+            <ScrollView>
+                <View>
+                    <Card
+                        onPress={() => navigation.navigate('Receita', { id: id })}
+                        style={{
+                            backgroundColor: '#33241F',
+                            borderBottomLeftRadius: 4,
+                            borderBottomEndRadius: 4,
+                            marginVertical: 9,
+                        }}>
+
+                        <Card.Cover source={{ uri: imagem }}
+                            style={{
+                                width: 364,
+                                height: 260,
+                                borderTopEndRadius: 4,
+                                borderTopLeftRadius: 4,
+                            }} />
+
+                        <View style={{
+                            flex: 1,
+                            flexDirection: 'row',
+                            justifyContent: 'space-between',
+                            padding: 5,
+                            alignItems: 'center'
+                        }}>
+
                             <View>
-                                <Card
-                                onPress={() => navigation.navigate('Receita', {id: id})}
-                                style={{
-                                    backgroundColor: '#33241F',
-                                    borderBottomLeftRadius: 4,
-                                    borderBottomEndRadius: 4,
-                                    marginVertical: 9,
-                                }}>
-
-                                    <Card.Cover source={{ uri: imagem }}
-                                        style={{
-                                            width: 364,
-                                            height: 260,
-                                            borderTopEndRadius: 4,
-                                            borderTopLeftRadius: 4,
-                                        }} />
-
-                                    <View style={{flex: 1, flexDirection: 'row', justifyContent: 'space-between', padding: 5, alignItems: 'center'}}>
-
-                                            <View>
-                                            <Text
-                                                style={{
-                                                    color: '#F78B63',
-                                                    fontSize: 19,
-                                                    fontWeight: 400,
-                                                    fontFamily: 'Roboto_400Regular',
-                                                    
-                                                }} >{nomeReceita}</Text>
-                                            </View>
-
-                                        <View>
-                                            <IconButton 
-                                            icon="cards-heart-outline"
-                                            size={40}
-                                            iconColor="#F78B63"
-                                            />
-                                    </View>
-
-                                    </View>
-
-                                </Card>
-
+                                <Text
+                                    style={{
+                                        color: '#F78B63',
+                                        fontSize: 19,
+                                        fontFamily: 'Roboto_400Regular',
+                                        width: 195,
+                                    }} >{nomeReceita}</Text>
                             </View>
+
+                            <View>
+                                <IconButton
+                                    icon="cards-heart-outline"
+                                    size={40}
+                                    iconColor="#F78B63"
+                                />
+                            </View>
+
+                        </View>
+
+                    </Card>
+
+                </View>
+            </ScrollView>
         )
     }
 
@@ -124,13 +131,13 @@ const Receita = () => {
                 <ActivityIndicator />
             ) : (
 
-            
+
                 <FlatList
-                        data={receitas}
-                        keyExtractor={({ id }) => id}
-                        renderItem={({ item,index }) => (
-                            <CardReceita navigation={navigation} id={item.id} key={index} imagem={item.imagem} nomeReceita={item.nomeReceita}/>
-                        )} />
+                    data={receitas}
+                    keyExtractor={({ id }) => id}
+                    renderItem={({ item, index }) => (
+                        <CardReceita navigation={navigation} id={item.id} key={index} imagem={item.imagem} nomeReceita={item.nomeReceita} />
+                    )} />
             )}
         </View>
     );

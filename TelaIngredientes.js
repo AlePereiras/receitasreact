@@ -2,15 +2,15 @@ import { ActivityIndicator, Text, View, Image, ScrollView, SafeAreaView, } from 
 import { IconButton, List } from "react-native-paper";
 import { useState, useEffect } from "react";
 import urlconfig from "./config.json";
-import { useFonts, Roboto_400Regular, Roboto_500Medium, Roboto_300Light} from "@expo-google-fonts/roboto";
+import { useFonts, Roboto_400Regular, Roboto_500Medium, Roboto_300Light } from "@expo-google-fonts/roboto";
 import { SafeAreaViewBase } from "react-native";
 // import { useRoute } from "@react-navigation/native";
 // import { useNavigation } from "@react-navigation/native";
 // import Receitas from "./TelaReceitas";
 
-function IngredienteReceita({route}) {
-    
-    const { id } = route.params ;
+function IngredienteReceita({ route }) {
+
+    const { id } = route.params;
     const [receita, setReceita] = useState(null);
     // console.log(receitas)
     const getReceita = async () => {
@@ -29,113 +29,115 @@ function IngredienteReceita({route}) {
     useEffect(() => {
         getReceita();
     }, []);
-    
-    function DadosReceita({imagem, nomeReceita, descricao, ingredientes, modoFazer}){
+
+    function DadosReceita({ imagem, nomeReceita, descricao, ingredientes, modoFazer }) {
 
         let [fontsLoaded, fontError] = useFonts({
             Roboto_400Regular,
             Roboto_500Medium,
             Roboto_300Light,
-           
+
         });
-    
+
         if (!fontsLoaded && !fontError) {
             return null;
         }
 
-        return ( 
-        
-        <ScrollView style={{marginLeft: 30}}>
-        
-        <View style={{flexDirection: 'row'}}>
-        <Text style={{
-            fontSize: 16, 
-            fontFamily: 'Roboto_400Regular', 
-            color: '#33241F',
-            marginTop: 10,
-            width: 280,
-            }}>{nomeReceita}</Text>
+        return (
 
-        <IconButton 
-            icon="cards-heart-outline"
-            size={40}
-            iconColor="#33241F"
-        />    
-        </View>
+            <ScrollView style={{}}>
 
-        <Image style={{
-            width:310, 
-            height:250, 
-            left: 20, 
-            borderRadius: 4,
-            marginTop: 20,
-            }} source={{uri: imagem }}/>
-        
-        <Text style={{
-            marginTop: 30,
-            fontSize: 16, 
-            fontFamily: 'Roboto_500Medium', 
-            color: '#33241F'
-            
-            }}>Descrição:</Text>
-        
+                <View style={{ flexDirection: 'row', justifyContent: 'center', alignItems: 'center' }}>
+                    <Text style={{
+                        fontSize: 16,
+                        fontFamily: 'Roboto_400Regular',
+                        color: '#33241F',
+                        marginTop: 10,
+                        width: 280,
+                    }}>{nomeReceita}</Text>
 
-        <Text style={{
-            fontSize: 16, 
-            color: '#33241F', 
-            fontFamily: 'Roboto_300Light', 
-            width: 330,
-            
-        }}>{descricao}</Text>
-        
-        <Text style={{
-            fontSize: 16, 
-            fontFamily: 'Roboto_500Medium', 
-            color: '#33241F',
-            marginTop: 10,
-        }}>Ingredientes:</Text>
-        
-        <Text style={{
-            fontSize: 16, 
-            color: '#33241F', 
-            fontFamily: 'Roboto_300Light',
-            width: 330,
-        }}>{ingredientes}</Text>
-        
-        <Text style={{
-            fontSize: 16, 
-            fontFamily: 'Roboto_500Medium', 
-            color: '#33241F',
-            marginTop: 10,
-        }}>Modo de fazer:</Text>
-        
-        <Text style={{
-            fontSize: 16, 
-            color: '#33241F', 
-            fontFamily: 'Roboto_300Light',
-            width: 330,
-        }}>{modoFazer}</Text>
-    
-    </ScrollView>
-   
-      )
-    } 
+                    <IconButton
+                        icon="cards-heart-outline"
+                        size={40}
+                        iconColor="#33241F"
+                    />
+                </View>
+
+                <View style={{ justifyContent: 'center', alignItems: 'center' }}>
+                    <Image style={{
+                        width: 310,
+                        height: 250,
+                        borderRadius: 4,
+                        marginTop: 20,
+                    }} source={{ uri: imagem }} />
+                </View>
+
+                <View style={{ marginLeft: 30 }}>
+                    <Text style={{
+                        marginTop: 30,
+                        fontSize: 16,
+                        fontFamily: 'Roboto_500Medium',
+                        color: '#33241F'
+
+                    }}>Descrição:</Text>
+
+
+                    <Text style={{
+                        fontSize: 16,
+                        color: '#33241F',
+                        fontFamily: 'Roboto_300Light',
+                        width: 330,
+
+                    }}>{descricao}</Text>
+
+                    <Text style={{
+                        fontSize: 16,
+                        fontFamily: 'Roboto_500Medium',
+                        color: '#33241F',
+                        marginTop: 10,
+                    }}>Ingredientes:</Text>
+
+                    <Text style={{
+                        fontSize: 16,
+                        color: '#33241F',
+                        fontFamily: 'Roboto_300Light',
+                        width: 330,
+                    }}>{ingredientes}</Text>
+
+                    <Text style={{
+                        fontSize: 16,
+                        fontFamily: 'Roboto_500Medium',
+                        color: '#33241F',
+                        marginTop: 10,
+                    }}>Modo de fazer:</Text>
+
+                    <Text style={{
+                        fontSize: 16,
+                        color: '#33241F',
+                        fontFamily: 'Roboto_300Light',
+                        width: 330,
+                    }}>{modoFazer}</Text>
+                </View>
+            </ScrollView>
+
+        )
+    }
 
     return receita ? (
-        <DadosReceita 
-        imagem={receita.imagem} 
-        descricao={receita.descricao} 
-        ingredientes={receita.ingredientes} 
-        modoFazer={receita.modoFazer} 
-        nomeReceita={receita.nomeReceita}
+        <DadosReceita
+            imagem={receita.imagem}
+            descricao={receita.descricao}
+            ingredientes={receita.ingredientes}
+            modoFazer={receita.modoFazer}
+            nomeReceita={receita.nomeReceita}
         />
-        ):<View style={{
-            flex:1, 
-            justifyContent:'center', 
-            alignItems:'center'
-            }}> 
-            <ActivityIndicator size={50}/> 
-            </View>
+    ) : <View style={{
+        flex: 1,
+        justifyContent: 'center',
+        alignItems: 'center'
+    }}>
+        <ActivityIndicator size={50} />
+    </View>
 }
 
 export default IngredienteReceita;
@@ -143,17 +145,17 @@ export default IngredienteReceita;
 
 // const IngredienteReceita = ({route}) => {
 
-    // const { id } = route.params.id;
-    
-    //     return(
-        //         <View  style={{flex:1, }}>
-        //         <Text>Tudo da Receita</Text>
-        //         <Image>{JSON.stringify(imagem)}</Image>
-        //         </View>
-        //     )
-        // }
+// const { id } = route.params.id;
 
-        {/* <List.Item 
+//     return(
+//         <View  style={{flex:1, }}>
+//         <Text>Tudo da Receita</Text>
+//         <Image>{JSON.stringify(imagem)}</Image>
+//         </View>
+//     )
+// }
+
+{/* <List.Item 
         title="Descrição:"
         titleStyle={{
             fontFamily: 'Roboto_500Medium', 
