@@ -85,13 +85,14 @@ function IngredienteReceita({route}) {
             color: '#33241F', 
             fontFamily: 'Roboto_300Light', 
             width: 330,
+            
         }}>{descricao}</Text>
         
         <Text style={{
             fontSize: 16, 
             fontFamily: 'Roboto_500Medium', 
-            color: '#33241F'
-            
+            color: '#33241F',
+            marginTop: 10,
         }}>Ingredientes:</Text>
         
         <Text style={{
@@ -104,8 +105,8 @@ function IngredienteReceita({route}) {
         <Text style={{
             fontSize: 16, 
             fontFamily: 'Roboto_500Medium', 
-            color: '#33241F'
-            
+            color: '#33241F',
+            marginTop: 10,
         }}>Modo de fazer:</Text>
         
         <Text style={{

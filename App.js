@@ -8,6 +8,7 @@ import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import TelaPesquisar from "./TelaPesquisar";
 import { StatusBar } from "react-native";
+import TelaAdReceita from "./TelaAdReceita";
 
 const Stack = createNativeStackNavigator();
 const Tab = createBottomTabNavigator();
@@ -47,6 +48,7 @@ function TabPrincipal () {
         <Tab.Navigator>
             <Tab.Screen name="Inicío" component={App} options={{headerShown: false}}/>
             <Tab.Screen name="Pesquisar" component={TelaPesquisar} options={{headerShown: false}}/>
+            <Tab.Screen name="Adicionar" component={TelaAdReceita} options={{headerShown: false}}/>
         </Tab.Navigator>
         </NavigationContainer>
     )
