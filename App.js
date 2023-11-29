@@ -31,13 +31,6 @@ function App() { //HomeStack
                     headerTintColor: '#33241F',
                 }} />
 
-                <Stack.Screen name="Perfil" component={PerfilDaTela} options={{
-                    title: "Receita na Mão",
-                    headerShadowVisible: false,
-                    headerStyle: { backgroundColor: '#F78B63', },
-                    headerTintColor: '#33241F',
-                }} />
-
             </Stack.Navigator>
 
         </>

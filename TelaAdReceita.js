@@ -53,6 +53,7 @@ function AdicionarReceita() {
                         marginTop: 10,
                         fontSize: 12,
                         fontFamily: 'Roboto_400Regular',
+                        paddingLeft: 10
                     }}></TextInput>
 
                     <Text style={{
@@ -74,6 +75,7 @@ function AdicionarReceita() {
                         marginTop: 10,
                         fontSize: 12,
                         fontFamily: 'Roboto_400Regular',
+                        paddingLeft: 10
                     }}></TextInput>
 
                     <Text style={{
@@ -95,6 +97,7 @@ function AdicionarReceita() {
                         marginTop: 10,
                         fontSize: 12,
                         fontFamily: 'Roboto_400Regular',
+                        paddingLeft: 10
                     }}></TextInput>
 
                     <Text style={{
@@ -116,6 +119,7 @@ function AdicionarReceita() {
                         marginTop: 10,
                         fontSize: 12,
                         fontFamily: 'Roboto_400Regular',
+                        paddingLeft: 10
                     }}></TextInput>
                 </View>
 

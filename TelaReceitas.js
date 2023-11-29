@@ -131,7 +131,15 @@ const Receita = () => {
 
 
                 <FlatList showsVerticalScrollIndicator = {false}
-                ListHeaderComponent={() => <View style={{paddingTop: 24}}><Text>Destaques</Text></View>}
+                ListHeaderComponent={() => 
+                <View style={{paddingTop: 24}}>
+                    <Text style={{
+                    fontSize: 20,  
+                    color: '#33241F',
+                    fontFamily: 'Roboto_400Regular',
+                }}>Destaques
+                        </Text></View>}
+                        
                     data={receitas}
                     keyExtractor={({ id }) => id}
                     renderItem={({ item, index }) => (
