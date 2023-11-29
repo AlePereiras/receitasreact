@@ -9,6 +9,7 @@ import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import TelaPesquisar from "./TelaPesquisar";
 import { StatusBar } from "react-native";
 import TelaAdReceita from "./TelaAdReceita";
+import PerfilDaTela from "./TelaPerfil";
 
 const Stack = createNativeStackNavigator();
 const Tab = createBottomTabNavigator();
@@ -28,14 +29,14 @@ function App() { //HomeStack
                     headerTintColor: '#33241F',
                 }} />
 
-                {/* <Stack.Screen name="Login" component={TelaLogin} options={{
-                        title: '', 
-                        headerShadowVisible: false, 
-                        headerStyle: {backgroundColor: '#33241F', }, 
-                    headerTintColor: '#33241F'}} /> */}
+                <Stack.Screen name="Perfil" component={PerfilDaTela} options={{
+                    title: "Receita na Mão",
+                    headerShadowVisible: false,
+                    headerStyle: { backgroundColor: '#F78B63', },
+                    headerTintColor: '#33241F',
+                }} />
 
             </Stack.Navigator>
-
 
         </>
     )
@@ -50,10 +51,17 @@ function TabPrincipal() {
                 <Tab.Screen name="Inicío" component={App} options={{ headerShown: false }} />
                 <Tab.Screen name="Pesquisar" component={TelaPesquisar} options={{ headerShown: false }} />
                 <Tab.Screen name="Adicionar" component={TelaAdReceita} options={{ headerShown: false }} />
+                <Tab.Screen name="Perfil" component={PerfilDaTela} options={{ headerShown: false }} />
             </Tab.Navigator>
         </NavigationContainer>
     )
 }
 
+
+                {/* <Stack.Screen name="Login" component={TelaLogin} options={{
+                        title: '', 
+                        headerShadowVisible: false, 
+                        headerStyle: {backgroundColor: '#33241F', }, 
+                    headerTintColor: '#33241F'}} /> */}
 
 export default TabPrincipal;

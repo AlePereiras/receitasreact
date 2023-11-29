@@ -24,7 +24,7 @@ function AdicionarReceita() {
 
             <ScrollView>
 
-                <View style={{ alignItems: 'center', justifyContent: 'center', marginTop: 200 }}>
+                <View style={{ alignItems: 'center', justifyContent: 'center', marginTop: 200, }}>
 
                     <Button mode="contained" buttonColor='#F88B62' textColor='#33241F' style={{ borderRadius: 6, }} >
                         Escolher uma imagem
