@@ -26,7 +26,7 @@ const Receitas = () => {
                 </Appbar.Header>
             </View>
 
-            <View >
+            {/* <View >
                 <Text style={{
                     fontSize: 20,
                     marginLeft: 24,
@@ -35,7 +35,7 @@ const Receitas = () => {
                     fontFamily: 'Roboto_400Regular',
 
                 }}>Destaques</Text>
-            </View>
+            </View> */}
 
             <Receita></Receita>
 
@@ -86,8 +86,6 @@ const Receita = () => {
                             style={{
                                 width: 364,
                                 height: 260,
-                                borderTopEndRadius: 4,
-                                borderTopLeftRadius: 4,
                             }} />
 
                         <View style={{
@@ -126,13 +124,14 @@ const Receita = () => {
     }
 
     return (
-        <View style={{ flex: 1, padding: 24 }}>
+        <View style={{ flex: 1, paddingHorizontal: 24 }}>
             {isLoading ? (
                 <ActivityIndicator />
             ) : (
 
 
-                <FlatList
+                <FlatList showsVerticalScrollIndicator = {false}
+                ListHeaderComponent={() => <View style={{paddingTop: 24}}><Text>Destaques</Text></View>}
                     data={receitas}
                     keyExtractor={({ id }) => id}
                     renderItem={({ item, index }) => (

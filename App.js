@@ -7,7 +7,7 @@ import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import TelaPesquisar from "./TelaPesquisar";
-import { StatusBar } from "react-native";
+import { StatusBar, View } from "react-native";
 import TelaAdReceita from "./TelaAdReceita";
 import PerfilDaTela from "./TelaPerfil";
 
@@ -18,7 +18,9 @@ function App() { //HomeStack
     return (
         <>
             <StatusBar />
-            <Stack.Navigator initialRouteName="Receitas">
+            <Stack.Navigator screenOptions={{
+
+            }} initialRouteName="Receitas">
 
                 <Stack.Screen name="Receitas" component={TelaReceitas} options={{ headerShown: false }} />
 
@@ -47,7 +49,9 @@ function App() { //HomeStack
 function TabPrincipal() {
     return (
         <NavigationContainer>
-            <Tab.Navigator>
+            <Tab.Navigator screenOptions={{
+                tabBarStyle:{backgroundColor: '#F78B63'}
+            }}>
                 <Tab.Screen name="Inicío" component={App} options={{ headerShown: false }} />
                 <Tab.Screen name="Pesquisar" component={TelaPesquisar} options={{ headerShown: false }} />
                 <Tab.Screen name="Adicionar" component={TelaAdReceita} options={{ headerShown: false }} />

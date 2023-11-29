@@ -45,7 +45,7 @@ function AdicionarReceita() {
                     <TextInput style={{
                         width: 290,
                         height: 35,
-                        backgroundColor: '#FFFFF',
+                        // backgroundColor: '#FFFFF',
                         borderColor: '#F88B62',
                         borderWidth: 1,
                         borderRadius: 6,
@@ -66,7 +66,7 @@ function AdicionarReceita() {
                     <TextInput style={{
                         width: 290,
                         height: 35,
-                        backgroundColor: '#FFFFF',
+                        // backgroundColor: '#FFFFF',
                         borderColor: '#F88B62',
                         borderWidth: 1,
                         borderRadius: 6,
@@ -87,7 +87,7 @@ function AdicionarReceita() {
                     <TextInput placeholder='Insira um ingrediente por linha' style={{
                         width: 290,
                         height: 35,
-                        backgroundColor: '#FFFFF',
+                        // backgroundColor: '#FFFFF',
                         borderColor: '#F88B62',
                         borderWidth: 1,
                         borderRadius: 6,
@@ -108,7 +108,7 @@ function AdicionarReceita() {
                     <TextInput style={{
                         width: 290,
                         height: 35,
-                        backgroundColor: '#FFFFF',
+                        // backgroundColor: '#FFFFF',
                         borderColor: '#F88B62',
                         borderWidth: 1,
                         borderRadius: 6,

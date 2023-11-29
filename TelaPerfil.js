@@ -1,26 +1,19 @@
 import { ScrollView, Text, View } from 'react-native';
-import {} from 'react-native-paper';
+import { Button } from 'react-native-paper';
 
 function PerfilDaTela (){
+return(
 
-<ScrollView>
-    <View>
-       
+    <View style ={{}}>
+             <Button mode="contained" buttonColor='#F88B62' textColor='#33241F' style={{ borderRadius: 6, }} >
+                   Escolher uma imagem
+                    </Button>
+                
     </View>
-</ScrollView>
 
+)
 
 }
-
-
-
-
-
-
-
-
-
-
 
 
 export default PerfilDaTela;
