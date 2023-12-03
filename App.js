@@ -1,13 +1,11 @@
-// import { StatusBar } from 'expo-status-bar';
-// import { StyleSheet, Text, View } from 'react-native';
-import TelaLogin from "./TelaLogin";
+import TelaCadastramento from "./TelaCadastramento";
 import TelaReceitas from "./TelaReceitas";
 import TelaIngredientes from './TelaIngredientes';
 import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import TelaPesquisar from "./TelaPesquisar";
-import { StatusBar, View } from "react-native";
+import { StatusBar, } from "react-native";
 import TelaAdReceita from "./TelaAdReceita";
 import PerfilDaTela from "./TelaPerfil";
 import { MaterialIcons } from '@expo/vector-icons';
@@ -82,7 +80,8 @@ function TabPrincipal() {
     )
 }
 
-export default TelaLogin;
+export default TelaCadastramento;
+
 // export default TabPrincipal;
 
 {/* <Stack.Screen name="Login" component={TelaLogin} options={{

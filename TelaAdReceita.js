@@ -138,23 +138,4 @@ function AdicionarReceita() {
 
 }
 
-
-
-{/* <Pressable style={{
-                        backgroundColor: '#F88B62',
-                        // width: 240,
-                        // height: 44,
-                        borderRadius: 6,
-                        marginTop: 200,
-                    }}>
-                        <Text style={{
-                            color: '#33241F',
-                            marginLeft: 15,
-                            marginTop: 6,
-                            fontSize: 16,
-                            fontFamily: 'Roboto_400Regular',
-                        }}>Escolher uma imagem</Text>
-                    </Pressable> */}
-
-
 export default AdicionarReceita;
