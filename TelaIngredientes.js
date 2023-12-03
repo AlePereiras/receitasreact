@@ -1,9 +1,9 @@
-import { ActivityIndicator, Text, View, Image, ScrollView, SafeAreaView, } from "react-native";
-import { IconButton, List } from "react-native-paper";
+import { ActivityIndicator, Text, View, Image, ScrollView, } from "react-native";
+import { Appbar, IconButton, PaperProvider, } from "react-native-paper";
 import { useState, useEffect } from "react";
 import urlconfig from "./config.json";
 import { useFonts, Roboto_400Regular, Roboto_500Medium, Roboto_300Light } from "@expo-google-fonts/roboto";
-import { SafeAreaViewBase } from "react-native";
+
 // import { useRoute } from "@react-navigation/native";
 // import { useNavigation } from "@react-navigation/native";
 // import Receitas from "./TelaReceitas";
@@ -46,6 +46,14 @@ function IngredienteReceita({ route }) {
         return (
 
             <ScrollView style={{}}>
+
+                <PaperProvider>
+                    <View>
+                        <Appbar.Header style={{ backgroundColor: '#F88B62', }}>
+                            <Appbar.Content color="#33241F" title="Receita na Mão" titleStyle={{ fontFamily: 'Roboto_500Medium', fontSize: 20, }} />
+                        </Appbar.Header>
+                    </View>
+                </PaperProvider>
 
                 <View style={{ flexDirection: 'row', justifyContent: 'center', alignItems: 'center' }}>
                     <Text style={{

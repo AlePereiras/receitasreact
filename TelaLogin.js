@@ -20,8 +20,6 @@ const input = () => {
 
         <View style={{ flex: 1, backgroundColor: '#33241F' }}>
 
-            {/* <Avatar.Image size={40} style={{ marginTop: 50, marginLeft: 25, backgroundColor: '#FFEFC1', }} source={{ uri: 'https://raw.githubusercontent.com/AlePereiras/receitasreact/master/img/seta.png', }} /> */}
-
             <View style={{ flex: 1, paddingTop: 175, }}>
 
                 <Text style={{ marginLeft: 105, fontSize: 20, color: '#F88B62', fontFamily: 'Roboto_500Medium' }}>Cadastrar Conta</Text>
@@ -69,7 +67,7 @@ const input = () => {
                     marginLeft: 100,
                 }}>
                     <TouchableOpacity style={{ backgroundColor: '#F88B62', borderRadius: 4, width: 131, height: 38, marginLeft: 35 }}>
-                        <Text style={{ textAlign: 'center', color: '#33241F', paddingBottom: 10, paddingTop: 7, fontFamily: 'Roboto_500Medium', fontSize: 15,  }}>Acessar</Text>
+                        <Text style={{ textAlign: 'center', color: '#33241F', paddingBottom: 10, paddingTop: 7, fontFamily: 'Roboto_500Medium', fontSize: 15, }}>Acessar</Text>
                     </TouchableOpacity>
                 </View>
 
