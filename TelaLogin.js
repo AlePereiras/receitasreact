@@ -1,7 +1,7 @@
 import { Text, View, TextInput, Pressable, } from "react-native";
 import { useFonts, Roboto_400Regular, Roboto_500Medium, } from '@expo-google-fonts/roboto';
 
-function CadastroConta() {
+function LoginConta () {
 
     let [fontsLoaded, fontError] = useFonts({
         Roboto_400Regular,
@@ -13,7 +13,8 @@ function CadastroConta() {
         return null;
     }
 
-    return (
+    return(
+
         <View style={{
             backgroundColor: '#33241F',
             justifyContent: 'center',
@@ -27,7 +28,7 @@ function CadastroConta() {
                 color: '#F88B62',
                 fontFamily: 'Roboto_500Medium',
 
-            }}>Cadastrar Conta
+            }}>Login
 
             </Text>
 
@@ -35,23 +36,6 @@ function CadastroConta() {
                 marginTop: 16,
 
             }}>
-
-                <Text style={{
-                    color: '#F88B62',
-                    fontSize: 15,
-                    fontFamily: 'Roboto_500Medium',
-
-                }}>Nome de Usuário:</Text>
-
-                <TextInput style={{
-                    width: 250,
-                    height: 34,
-                    backgroundColor: '#C48B76',
-                    borderRadius: 4,
-                    paddingLeft: 10,
-                    color: '#FFFF',
-
-                }}></TextInput>
 
                 <Text style={{
                     color: '#F88B62',
@@ -67,7 +51,7 @@ function CadastroConta() {
                     backgroundColor: '#C48B76',
                     borderRadius: 4,
                     paddingLeft: 10,
-                    color: '#FFFF',
+                    color: '#FFFF'
 
                 }}></TextInput>
 
@@ -114,7 +98,7 @@ function CadastroConta() {
                 borderWidth: 1,
                 borderColor: '#C48B76',
                 marginTop: 20,
-                width: 290,
+                width: 340,
                 height: 68,
                 borderRadius: 8,
                 flexDirection: 'row',
@@ -127,12 +111,12 @@ function CadastroConta() {
                     color: '#F88B62',
                     marginTop: 20,
 
-                }}>Já tem uma conta?</Text>
+                }}>Ainda não tem conta?</Text>
 
                 <Pressable style={{
                     backgroundColor: '#F88B62',
-                    width: 83,
-                    height: 43,
+                    width: 120,
+                    height: 47,
                     borderRadius: 4,
                     marginTop: 10,
                     justifyContent: 'center',
@@ -144,16 +128,15 @@ function CadastroConta() {
                         fontFamily: 'Roboto_400Regular',
 
                     }}>
-                        Entrar
+                        Cadastre-se
                     </Text>
                 </Pressable>
 
             </View>
 
         </View>
-
     )
 }
 
-export default CadastroConta;
 
+export default LoginConta;

@@ -1,4 +1,4 @@
-import { ScrollView, Text, View, Pressable, TextInput, } from 'react-native';
+import { ScrollView, Text, View, Pressable, TextInput, Image, } from 'react-native';
 import { Appbar, PaperProvider, Button, } from 'react-native-paper';
 import { useFonts, Roboto_400Regular, Roboto_500Medium } from "@expo-google-fonts/roboto";
 
@@ -24,7 +24,11 @@ function AdicionarReceita() {
 
             <ScrollView>
 
-                <View style={{ alignItems: 'center', justifyContent: 'center', marginTop: 200, }}>
+                <View style={{borderWidth: 2, borderColor: '#858585', width: 252, height: 156, marginLeft: 80, marginTop: 44}}>
+                  <Image></Image>
+                </View>
+
+                <View style={{ alignItems: 'center', justifyContent: 'center', marginTop: 30}}>
 
                     <Button mode="contained" buttonColor='#F88B62' textColor='#33241F' style={{ borderRadius: 6, }} >
                         Escolher uma imagem

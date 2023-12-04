@@ -1,5 +1,5 @@
-import { Image, Pressable, ScrollView, Text, TouchableOpacity, View } from 'react-native';
-import { Button, IconButton } from 'react-native-paper';
+import { Image, ScrollView, Text, View, } from 'react-native';
+import { Button, IconButton, Modal } from 'react-native-paper';
 import { useFonts, Roboto_400Regular, Roboto_500Medium, Roboto_700Bold } from "@expo-google-fonts/roboto";
 
 function PerfilDaTela() {
@@ -115,8 +115,26 @@ function PerfilDaTela() {
                 justifyContent: 'center',
             }}>
 
-                <Button mode="text" textColor='#33241F' contentStyle={{ borderWidth: 1, borderTopColor: '#FFFF', borderBottomColor: '#33241F', borderRightColor: '#33241F' }} style={{ borderRadius: 0, width: 205, }}>Suas Receitas</Button>
-                <Button mode="text" textColor='#33241F' contentStyle={{ borderWidth: 1, borderTopColor: '#FFFF', borderBottomColor: '#33241F', borderRightColor: '#33241F' }} style={{ borderRadius: 0, width: 205 }}>Favoritos</Button>
+                <Button mode="text" textColor='#33241F' contentStyle={{ 
+                    borderWidth: 1, 
+                    borderTopColor: '#FFFF', 
+                    borderBottomColor: '#33241F', 
+                    borderRightColor: '#33241F',
+                    
+                    }} style={{ 
+                        borderRadius: 0, 
+                        width: 205, 
+                        }}>Suas Receitas</Button>
+
+                <Button mode="text" textColor='#33241F' contentStyle={{ 
+                    borderWidth: 1, 
+                    borderTopColor: '#FFFF', 
+                    borderBottomColor: '#33241F', 
+                    borderRightColor: '#33241F', 
+                    
+                    }} style={{ 
+                        borderRadius: 0, 
+                        width: 205 }}>Favoritos</Button>
 
             </View>
 

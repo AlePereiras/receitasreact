@@ -1,13 +1,14 @@
 import TelaCadastramento from "./TelaCadastramento";
 import TelaReceitas from "./TelaReceitas";
 import TelaIngredientes from './TelaIngredientes';
+import TelaPesquisar from "./TelaPesquisar";
+import TelaAdReceita from "./TelaAdReceita";
+import PerfilDaTela from "./TelaPerfil";
+import TelaLogin from "./TelaLogin";
 import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
-import TelaPesquisar from "./TelaPesquisar";
 import { StatusBar, } from "react-native";
-import TelaAdReceita from "./TelaAdReceita";
-import PerfilDaTela from "./TelaPerfil";
 import { MaterialIcons } from '@expo/vector-icons';
 import { FontAwesome } from '@expo/vector-icons';
 import { Feather } from '@expo/vector-icons';
@@ -47,7 +48,7 @@ function TabPrincipal() {
     return (
         <NavigationContainer>
             <Tab.Navigator screenOptions={{
-                tabBarStyle: { backgroundColor: '#F78B63', height: 65, paddingBottom: 5, },
+                tabBarStyle: { backgroundColor: '#F78B63', height: 65, paddingBottom: 5, borderTopWidth: 2, borderTopColor: '#33241F', borderTopLeftRadius: 8, borderTopRightRadius: 8},
                 tabBarActiveTintColor: '#33241F',
                 tabBarInactiveTintColor: '#C48B76',
             }}>
@@ -80,9 +81,9 @@ function TabPrincipal() {
     )
 }
 
-export default TelaCadastramento;
+export default TabPrincipal;
 
-// export default TabPrincipal;
+// export default TelaLogin;
 
 {/* <Stack.Screen name="Login" component={TelaLogin} options={{
                         title: '', 
