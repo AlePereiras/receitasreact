@@ -1,14 +1,26 @@
 import { ScrollView, Text, View, Pressable, TextInput, Image, } from 'react-native';
 import { Appbar, PaperProvider, Button, } from 'react-native-paper';
 import { useFonts, Roboto_400Regular, Roboto_500Medium } from "@expo-google-fonts/roboto";
+import { useState } from 'react';
 
-function AdicionarReceita() {
+const AdicionarReceita = () => {
 
     let [fontsLoaded, fontError] = useFonts({
         Roboto_400Regular,
         Roboto_500Medium,
-
     });
+
+    const [descricao, setDescricao] = useState('');
+    const [ingredientes, setIngredientes] = useState('');
+    const [modoFazer, setModoFazer] = useState('');
+
+    const [heightDescricao, setHeightDescricao] = useState(40);
+    const [heightIngredientes, setHeightIngredientes] = useState(40);
+    const [heightModoFazer, setHeightModoFazer] = useState(40);
+
+    const onContentSizeChange = (conteudo, setHeigth) => (e) => {
+        setHeigth(Math.max(40, e.nativeEvent.contentSize.height));
+    }
 
     if (!fontsLoaded && !fontError) {
         return null;
@@ -68,14 +80,16 @@ function AdicionarReceita() {
                         marginTop: 10,
                     }}>Descrição*</Text>
 
-                    <TextInput style={{
+                    <TextInput 
+                    multiline={true} 
+                    value={descricao} 
+                    onChangeText={(newText) => setDescricao(newText)} onContentSizeChange={onContentSizeChange(descricao, setHeightDescricao)} 
+                    style={{
                         width: 290,
-                        height: 35,
-                        // backgroundColor: '#FFFFF',
+                        height: heightDescricao,
                         borderColor: '#F88B62',
                         borderWidth: 1,
                         borderRadius: 6,
-                        // marginLeft: 46,
                         marginTop: 10,
                         fontSize: 12,
                         fontFamily: 'Roboto_400Regular',
@@ -90,18 +104,20 @@ function AdicionarReceita() {
                         marginTop: 10,
                     }}>Ingredientes*</Text>
 
-                    <TextInput placeholder='Insira um ingrediente por linha' style={{
+                    <TextInput  placeholder='Insira um ingrediente por linha' 
+                    multiline={true} 
+                    value={ingredientes} 
+                    onChangeText={(newText) => setIngredientes(newText)} onContentSizeChange={onContentSizeChange(ingredientes, setHeightIngredientes)} 
+                    style={{
                         width: 290,
-                        height: 35,
-                        // backgroundColor: '#FFFFF',
+                        height: heightIngredientes,
                         borderColor: '#F88B62',
                         borderWidth: 1,
                         borderRadius: 6,
-                        // marginLeft: 5,
                         marginTop: 10,
                         fontSize: 12,
                         fontFamily: 'Roboto_400Regular',
-                        paddingLeft: 10
+                        paddingLeft: 10,
                     }}></TextInput>
 
                     <Text style={{
@@ -112,14 +128,16 @@ function AdicionarReceita() {
                         marginTop: 10,
                     }}>Modo de Fazer*</Text>
 
-                    <TextInput style={{
+                    <TextInput 
+                    multiline={true} 
+                    value={modoFazer} 
+                    onChangeText={(newText) => setModoFazer(newText)} onContentSizeChange={onContentSizeChange(modoFazer, setHeightModoFazer)} 
+                    style={{
                         width: 290,
-                        height: 35,
-                        // backgroundColor: '#FFFFF',
+                        height: heightModoFazer,
                         borderColor: '#F88B62',
                         borderWidth: 1,
                         borderRadius: 6,
-                        // marginLeft: 46,
                         marginTop: 10,
                         fontSize: 12,
                         fontFamily: 'Roboto_400Regular',
