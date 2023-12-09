@@ -1,9 +1,8 @@
 import React, { useEffect, useState } from "react";
-import { Appbar, PaperProvider, Text, Avatar, Card, IconButton } from 'react-native-paper';
-import { View, FlatList, Image, ActivityIndicator, Pressable, StyleSheet, ScrollView } from "react-native";
+import { Appbar, PaperProvider, Text, Card, IconButton } from 'react-native-paper';
+import { View, FlatList, ActivityIndicator, ScrollView } from "react-native";
 import { useFonts, Roboto_400Regular, Roboto_500Medium } from "@expo-google-fonts/roboto";
-import { useNavigation, NavigationContainer } from "@react-navigation/native";
-import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import { useNavigation, } from "@react-navigation/native";
 import urlconfig from "./config.json"
 
 const Receitas = () => {
@@ -26,17 +25,6 @@ const Receitas = () => {
                 </Appbar.Header>
             </View>
 
-            {/* <View >
-                <Text style={{
-                    fontSize: 20,
-                    marginLeft: 24,
-                    marginTop: 20,
-                    color: '#33241F',
-                    fontFamily: 'Roboto_400Regular',
-
-                }}>Destaques</Text>
-            </View> */}
-
             <Receita></Receita>
 
         </PaperProvider>
@@ -52,7 +40,7 @@ const Receita = () => {
     const getReceitas = async () => {
         try {
             const response = await fetch(`${urlconfig.urlDesenvolvimento}/receitas`);
-            console.log(response)
+            // console.log(response)
             const json = await response.json();
             setReceitas(json);
         } catch (error) {
@@ -130,16 +118,16 @@ const Receita = () => {
             ) : (
 
 
-                <FlatList showsVerticalScrollIndicator = {false}
-                ListHeaderComponent={() => 
-                <View style={{paddingTop: 24}}>
-                    <Text style={{
-                    fontSize: 20,  
-                    color: '#33241F',
-                    fontFamily: 'Roboto_400Regular',
-                }}>Destaques
-                        </Text></View>}
-                        
+                <FlatList showsVerticalScrollIndicator={false}
+                    ListHeaderComponent={() =>
+                        <View style={{ paddingTop: 24 }}>
+                            <Text style={{
+                                fontSize: 20,
+                                color: '#33241F',
+                                fontFamily: 'Roboto_400Regular',
+                            }}>Destaques
+                            </Text></View>}
+
                     data={receitas}
                     keyExtractor={({ id }) => id}
                     renderItem={({ item, index }) => (

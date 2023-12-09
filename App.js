@@ -25,16 +25,15 @@ function App() { //HomeStack
 
             }} initialRouteName="Receitas">
 
-                <Stack.Screen name="Receitas" component={TelaReceitas} options={{ headerShown: false }} />
+                <Stack.Screen name="Receitas" component={TelaReceitas}
+                    options={{
+                        headerShown: false
+                    }} />
 
-                <Stack.Screen name="Receita" component={TelaIngredientes} options={{
-                    headerShown: false
-                    // title: "Receita na Mão",
-                    // headerShadowVisible: false,
-                    // headerStyle: { backgroundColor: '#F78B63', },
-                    // headerTintColor: '#33241F',
-
-                }} />
+                <Stack.Screen name="Receita" component={TelaIngredientes}
+                    options={{
+                        headerShown: false
+                    }} />
 
             </Stack.Navigator>
 
@@ -48,7 +47,7 @@ function TabPrincipal() {
     return (
         <NavigationContainer>
             <Tab.Navigator screenOptions={{
-                tabBarStyle: { backgroundColor: '#F78B63', height: 65, paddingBottom: 5, borderTopWidth: 2, borderTopColor: '#33241F', borderTopLeftRadius: 8, borderTopRightRadius: 8},
+                tabBarStyle: { backgroundColor: '#F78B63', height: 65, paddingBottom: 5, borderTopWidth: 2, borderTopColor: '#33241F', borderTopLeftRadius: 8, borderTopRightRadius: 8 },
                 tabBarActiveTintColor: '#33241F',
                 tabBarInactiveTintColor: '#C48B76',
             }}>

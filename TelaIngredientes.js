@@ -4,15 +4,10 @@ import { useState, useEffect } from "react";
 import urlconfig from "./config.json";
 import { useFonts, Roboto_400Regular, Roboto_500Medium, Roboto_300Light } from "@expo-google-fonts/roboto";
 
-// import { useRoute } from "@react-navigation/native";
-// import { useNavigation } from "@react-navigation/native";
-// import Receitas from "./TelaReceitas";
-
 function IngredienteReceita({ route }) {
 
     const { id } = route.params;
     const [receita, setReceita] = useState(null);
-    // console.log(receitas)
     const getReceita = async () => {
         try {
             const response = await fetch(`${urlconfig.urlDesenvolvimento}/receitas/${id}`);
