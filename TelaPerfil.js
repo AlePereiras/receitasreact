@@ -1,6 +1,7 @@
 import { Image, ScrollView, Text, View, } from 'react-native';
-import { Button, IconButton, Modal } from 'react-native-paper';
+import { Button, IconButton, Modal, Portal, Provider } from 'react-native-paper';
 import { useFonts, Roboto_400Regular, Roboto_500Medium, Roboto_700Bold } from "@expo-google-fonts/roboto";
+import { useState } from 'react';
 
 function PerfilDaTela() {
 
@@ -10,6 +11,15 @@ function PerfilDaTela() {
         Roboto_700Bold,
 
     });
+
+    const [isModalVisivel, setModalVisivel] = useState(false);
+    const showModal = () => setModalVisivel(true);
+    const hideModal = () => setModalVisivel(false);
+
+    const handleLogout = () => {
+
+        hideModal();
+    };
 
     if (!fontsLoaded && !fontError) {
         return null;
@@ -42,7 +52,11 @@ function PerfilDaTela() {
                 <IconButton
                     icon="dots-vertical"
                     size={40}
-                    iconColor="#33241F">
+                    // iconColor="#33241F"
+                    iconColor="red"
+                    onPress={showModal}
+
+                >
                 </IconButton>
             </View>
 
@@ -115,29 +129,42 @@ function PerfilDaTela() {
                 justifyContent: 'center',
             }}>
 
-                <Button mode="text" textColor='#33241F' contentStyle={{ 
-                    borderWidth: 1, 
-                    borderTopColor: '#FFFF', 
-                    borderBottomColor: '#33241F', 
+                <Button mode="text" textColor='#33241F' contentStyle={{
+                    borderWidth: 1,
+                    borderTopColor: '#FFFF',
+                    borderBottomColor: '#33241F',
                     borderRightColor: '#33241F',
-                    
-                    }} style={{ 
-                        borderRadius: 0, 
-                        width: 205, 
-                        }}>Suas Receitas</Button>
 
-                <Button mode="text" textColor='#33241F' contentStyle={{ 
-                    borderWidth: 1, 
-                    borderTopColor: '#FFFF', 
-                    borderBottomColor: '#33241F', 
-                    borderRightColor: '#33241F', 
-                    
-                    }} style={{ 
-                        borderRadius: 0, 
-                        width: 205 }}>Favoritos</Button>
+                }} style={{
+                    borderRadius: 0,
+                    width: 205,
+                }}>Suas Receitas</Button>
+
+                <Button mode="text" textColor='#33241F' contentStyle={{
+                    borderWidth: 1,
+                    borderTopColor: '#FFFF',
+                    borderBottomColor: '#33241F',
+                    borderRightColor: '#33241F',
+
+                }} style={{
+                    borderRadius: 0,
+                    width: 205
+                }}>Favoritos</Button>
 
             </View>
 
+            <Portal>
+                <Modal visible={isModalVisivel} onDismiss={hideModal}>
+                    <View style={{
+                        backgroundColor: 'write',
+                        padding: 20,
+                        margin: 20,
+                        borderRadius: 10,
+                    }}>
+                        <Button onPress={handleLogout}>Sair da conta</Button>
+                    </View>
+                </Modal>
+            </Portal>
         </ScrollView>
     )
 
