@@ -42,14 +42,6 @@ function IngredienteReceita({ route }) {
 
             <ScrollView style={{}}>
 
-                <PaperProvider>
-                    <View>
-                        <Appbar.Header style={{ backgroundColor: '#F88B62', }}>
-                            <Appbar.Content color="#33241F" title="Receita na Mão" titleStyle={{ fontFamily: 'Roboto_500Medium', fontSize: 20, }} />
-                        </Appbar.Header>
-                    </View>
-                </PaperProvider>
-
                 <View style={{ flexDirection: 'row', justifyContent: 'center', alignItems: 'center' }}>
                     <Text style={{
                         fontSize: 16,

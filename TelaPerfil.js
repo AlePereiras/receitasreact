@@ -12,15 +12,6 @@ function PerfilDaTela() {
 
     });
 
-    const [isModalVisivel, setModalVisivel] = useState(false);
-    const showModal = () => setModalVisivel(true);
-    const hideModal = () => setModalVisivel(false);
-
-    const handleLogout = () => {
-
-        hideModal();
-    };
-
     if (!fontsLoaded && !fontError) {
         return null;
     }
@@ -31,31 +22,22 @@ function PerfilDaTela() {
             <View style={{
                 flexDirection: 'row',
                 backgroundColor: '#F88B62',
-                justifyContent: 'space-between',
+                justifyContent: 'space-around'
 
             }}>
-
-                <IconButton
-                    icon="arrow-left-thin-circle-outline"
-                    size={40}
-                    iconColor="#33241F">
-                </IconButton>
-
                 <Text style={{
                     fontSize: 20,
                     color: '#33241F',
                     marginTop: 15,
-                    fontFamily: 'Roboto_700Bold'
+                    fontFamily: 'Roboto_700Bold',
+                    paddingLeft: 99,
 
                 }}>Receita na Mão</Text>
 
                 <IconButton
                     icon="dots-vertical"
                     size={40}
-                    // iconColor="#33241F"
-                    iconColor="red"
-                    onPress={showModal}
-
+                    iconColor="#33241F"
                 >
                 </IconButton>
             </View>
@@ -153,18 +135,7 @@ function PerfilDaTela() {
 
             </View>
 
-            <Portal>
-                <Modal visible={isModalVisivel} onDismiss={hideModal}>
-                    <View style={{
-                        backgroundColor: 'write',
-                        padding: 20,
-                        margin: 20,
-                        borderRadius: 10,
-                    }}>
-                        <Button onPress={handleLogout}>Sair da conta</Button>
-                    </View>
-                </Modal>
-            </Portal>
+            
         </ScrollView>
     )
 
@@ -172,39 +143,3 @@ function PerfilDaTela() {
 
 export default PerfilDaTela;
 
-
-
-{/* <View style ={{}}>
-            <TouchableOpacity> 
-                <Image />
-            </TouchableOpacity>
-    </View> */}
-
-
-{/* <Pressable>
-                    <Text style={{
-                        borderBottomColor: '#33241F',
-                        borderWidth: 1,
-                        fontSize: 16,
-                        fontFamily: 'Roboto_500Medium',
-                        color: '#33241F',
-                        width: 205,
-                        height: 40,
-                        paddingLeft: 40,
-                        paddingTop: 5
-                    }}>Suas Receitas</Text>
-                </Pressable>
-
-                <Pressable>
-                    <Text style={{
-                        borderColor: '#33241F',
-                        borderWidth: 1,
-                        fontSize: 16,
-                        fontFamily: 'Roboto_500Medium',
-                        color: '#33241F',
-                        width: 205,
-                        height: 40,
-                        paddingLeft: 60,
-                        paddingTop: 5
-                    }}>Favoritos</Text>
-                </Pressable> */}

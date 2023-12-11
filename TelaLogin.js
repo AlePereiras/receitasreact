@@ -1,7 +1,11 @@
 import { Text, View, TextInput, Pressable, } from "react-native";
 import { useFonts, Roboto_400Regular, Roboto_500Medium, } from '@expo-google-fonts/roboto';
+import { useNavigation } from "@react-navigation/native";
+
 
 function LoginConta () {
+
+    const navigation = useNavigation()
 
     let [fontsLoaded, fontError] = useFonts({
         Roboto_400Regular,
@@ -63,7 +67,7 @@ function LoginConta () {
 
                 }}>Senha:</Text>
 
-                <TextInput style={{
+                <TextInput secureTextEntry={true} style={{
                     width: 250,
                     height: 34,
                     backgroundColor: '#C48B76',
@@ -75,7 +79,9 @@ function LoginConta () {
 
             </View>
 
-            <Pressable style={{
+            <Pressable onPress={() => {
+                navigation.navigate('Tabs')
+            }} style={{
                 backgroundColor: '#F88B62',
                 width: 131,
                 height: 38,
@@ -93,46 +99,6 @@ function LoginConta () {
                     Acessar
                 </Text>
             </Pressable>
-
-            <View style={{
-                borderWidth: 1,
-                borderColor: '#C48B76',
-                marginTop: 20,
-                width: 340,
-                height: 68,
-                borderRadius: 8,
-                flexDirection: 'row',
-                justifyContent: 'space-around',
-
-            }}>
-
-                <Text style={{
-                    fontSize: 15,
-                    color: '#F88B62',
-                    marginTop: 20,
-
-                }}>Ainda não tem conta?</Text>
-
-                <Pressable style={{
-                    backgroundColor: '#F88B62',
-                    width: 120,
-                    height: 47,
-                    borderRadius: 4,
-                    marginTop: 10,
-                    justifyContent: 'center',
-                    alignItems: 'center',
-                }}>
-                    <Text style={{
-                        color: '#33241F',
-                        fontSize: 15,
-                        fontFamily: 'Roboto_400Regular',
-
-                    }}>
-                        Cadastre-se
-                    </Text>
-                </Pressable>
-
-            </View>
 
         </View>
     )

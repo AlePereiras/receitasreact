@@ -20,23 +20,35 @@ const Tab = createBottomTabNavigator();
 function App() { //HomeStack
     return (
         <>
-            <StatusBar />
+            <NavigationContainer>
+                <StatusBar/>
             <Stack.Navigator screenOptions={{
+               
+            }} initialRouteName="Login">
 
-            }} initialRouteName="Receitas">
-
-                <Stack.Screen name="Receitas" component={TelaReceitas}
+                <Stack.Screen name="Login" component={TelaLogin}
                     options={{
-                        headerShown: false
+                        headerShown: false,
+                    
                     }} />
 
+                <Stack.Screen name="Tabs" component={TabPrincipal}
+                    options={{
+                        headerShown: false,
+                    
+                    }} />
+
+                
                 <Stack.Screen name="Receita" component={TelaIngredientes}
                     options={{
-                        headerShown: false
-                    }} />
+                        title: "Receita na Mão",
+                        headerShadowVisible: false,
+                        headerStyle: {backgroundColor: '#F78B63'},
+                        headerTintColor: '#33241F'
+                    }} />  
 
             </Stack.Navigator>
-
+            </NavigationContainer>
         </>
     )
 
@@ -45,42 +57,67 @@ function App() { //HomeStack
 
 function TabPrincipal() {
     return (
-        <NavigationContainer>
+        
             <Tab.Navigator screenOptions={{
-                tabBarStyle: { backgroundColor: '#F78B63', height: 65, paddingBottom: 5, borderTopWidth: 2, borderTopColor: '#33241F', borderTopLeftRadius: 8, borderTopRightRadius: 8 },
+                
+                tabBarStyle: { 
+                    backgroundColor: '#F78B63', 
+                    height: 65, 
+                    paddingBottom: 5, 
+                    borderTopWidth: 2, 
+                    borderTopColor: '#33241F', 
+                    borderTopLeftRadius: 8, 
+                    borderTopRightRadius: 8 
+                
+                },
                 tabBarActiveTintColor: '#33241F',
                 tabBarInactiveTintColor: '#C48B76',
             }}>
-                <Tab.Screen name="Inicío" component={App} options={{
-                    headerShown: false, tabBarIcon: ({ }) => (
-                        <MaterialIcons name="home-filled" size={35} color="#33241F" />
-                    ),
+                <Tab.Screen name="Inicío" component={TelaReceitas} options={{
+                    headerShown: false, 
+                    tabBarIcon: ({focused}) => {
+                        if (focused) {
+                            return <MaterialIcons name="home-filled" size={35} color="#33241F" />
+                        } 
+                            return <MaterialIcons name="home-filled" size={35} color="#C48B76" />
+                },
                 }} />
 
                 <Tab.Screen name="Pesquisar" component={TelaPesquisar} options={{
-                    headerShown: false, tabBarIcon: ({ }) => (
-                        <FontAwesome name="search" size={35} color="#33241F" />
-                    ),
+                    headerShown: false, tabBarIcon: ({focused}) => {
+                        
+                    if(focused) {
+                    return <FontAwesome name="search" size={35} color="#33241F" />
+                    }
+                    return <FontAwesome name="search" size={35} color="#C48B76" />
+                    },
                 }} />
 
                 <Tab.Screen name="Adicionar" component={TelaAdReceita} options={{
-                    headerShown: false, tabBarIcon: ({ }) => (
-                        <Feather name="plus-square" size={35} color="#33241F" />
-                    ),
+                    headerShown: false, tabBarIcon: ({focused}) => {
+                        if(focused){
+                       return <Feather name="plus-square" size={35} color="#33241F" />
+                    }
+                    return <Feather name="plus-square" size={35} color="#C48B76" />
+                    },
                 }} />
 
                 <Tab.Screen name="Perfil" component={PerfilDaTela} options={{
-                    headerShown: false, tabBarIcon: ({ }) => (
-                        <FontAwesome5 name="user-circle" size={35} color="#33241F" />
-                    ),
+                    headerShown: false, tabBarIcon: ({focused}) => {
+                        if(focused){
+                       return <FontAwesome5 name="user-circle" size={35} color="#33241F" />
+                    }
+                    return <FontAwesome5 name="user-circle" size={35} color="#C48B76" />
+                    },
                 }} />
 
             </Tab.Navigator>
-        </NavigationContainer>
+           
+        
     )
 }
 
-export default TabPrincipal;
+export default App;
 
 // export default TelaLogin;
 
