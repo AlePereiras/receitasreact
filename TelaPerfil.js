@@ -1,7 +1,9 @@
-import { FlatList, Image, ScrollView, Text, View, } from 'react-native';
-import { ActivityIndicator, Button, IconButton, } from 'react-native-paper';
+import { FlatList, Image, Alert, Text, View, } from 'react-native';
+import { ActivityIndicator, Button, IconButton, Card } from 'react-native-paper';
 import { useFonts, Roboto_400Regular, Roboto_500Medium, Roboto_700Bold } from "@expo-google-fonts/roboto";
 import { useEffect, useState } from 'react';
+import urlconfig from "./config.json"
+import { useNavigation } from '@react-navigation/native';
 
 
 const PuxarReceita = () => {
@@ -15,6 +17,7 @@ const PuxarReceita = () => {
 
     const [receitas, setReceitas] = useState([]);
     const [isLoading, setLoading] = useState(false);
+    const navigation = useNavigation()
 
     const getReceitas = async () => {
         try {
@@ -23,7 +26,7 @@ const PuxarReceita = () => {
             setReceitas(json);
         } catch (error) {
             console.error(error);
-        }finally{
+        } finally {
             setLoading(false);
         }
     };
@@ -32,16 +35,101 @@ const PuxarReceita = () => {
         getReceitas();
     }, []);
 
+    const HandleDeleteReceita = async (id) => {
+        try {
+            const response = await fetch(`${urlconfig.urlDesenvolvimento}/receitas/${id}`, {
+                method: 'DELETE',
+                headers: { 'Content-type': 'application/json' }
+            });
+
+            if (!response.ok) {
+                throw new Error('Erro ao excluir a receita');
+            }
+
+            getReceitas();
+        } catch (error) {
+            console.error(error);
+        }
+    }
+
     if (!fontsLoaded && !fontError) {
         return null;
     }
 
 
-function PerfilDaTela({ imagem, nomeReceita}) {
-    
-    return (
+    function PerfilDaTela({ imagem, nomeReceita, navigation, id, onDelete }) {
 
-        <ScrollView>
+        const HandleDelete = () => {
+            Alert.alert(
+                'Excluir Receita',
+                'Tem certeza de que deseja excluir está receita?',
+                [
+                    {
+                        text: 'Cancelar',
+                        style: 'cancel',
+                    },
+                    {
+                        text: 'Excluir',
+                        onPress: async () => {
+                            await onDelete(id);
+                            Alert.alert('RECEITA EXCLUIDA COM SUCESSO')
+                        },
+                    },
+                ],
+                { cancelable: false }
+            );
+        };
+
+        return (
+
+            <View style={{
+                justifyContent: 'center',
+                alignItems: 'center',
+            }}>
+                <Card onPress={() => navigation.navigate('Receita', { id: id })}
+                    style={{
+                        backgroundColor: '#33241F',
+                        borderBottomLeftRadius: 4,
+                        borderBottomEndRadius: 4,
+                        marginVertical: 9,
+                        width: 364,
+                    }}>
+                    <Card.Cover style={{
+                        width: 364,
+                        height: 260
+                    }} source={{ uri: imagem }} />
+
+                    <View style={{
+                        flexDirection: 'row',
+                        justifyContent: 'space-between',
+                        padding: 5,
+                        alignItems: 'center'
+                    }}>
+                        <View>
+                            <Text style={{
+                                color: '#F78B63',
+                                fontSize: 19,
+                                fontFamily: 'Roboto_400Regular',
+                                width: 195,
+                            }}>{nomeReceita}</Text>
+                        </View>
+
+                        <View>
+                            <IconButton style={{}}
+                                icon="trash-can-outline"
+                                size={40}
+                                iconColor="#F78B63"
+                                onPress={HandleDelete}
+                            />
+                        </View>
+                    </View>
+                </Card>
+            </View>
+        )
+    }
+
+    return (
+        <View style={{ flex: 1 }}>
             <View style={{
                 flexDirection: 'row',
                 backgroundColor: '#F88B62',
@@ -155,28 +243,21 @@ function PerfilDaTela({ imagem, nomeReceita}) {
                     borderRadius: 0,
                     width: 205
                 }}>Favoritos</Button>
-
             </View>
-        </ScrollView>
-    )
-}
 
-return(
+            {isLoading ? (
+                <ActivityIndicator />
+            ) : (
 
-    <View style={{ flex: 1, paddingHorizontal: 24}}>
-        {isLoading ? (
-            <ActivityIndicator/>
-        ) : (
-            
-            <FlatList showsVerticalScrollIndicator={false} 
-            data={receitas}
-            keyExtractor={({ id }) => id}
-            renderItem={({ item, index}) => (
-                <PerfilDaTela id={item.id} key={index} imagem={item.imagem} nomeReceita={item.nomeReceita}/>
+                <FlatList showsVerticalScrollIndicator={false}
+                    data={receitas}
+                    keyExtractor={({ id }) => id}
+                    renderItem={({ item, index }) => (
+                        <PerfilDaTela navigation={navigation} id={item.id} key={index} imagem={item.imagem} nomeReceita={item.nomeReceita} onDelete={HandleDeleteReceita} />
+                    )}
+                />
             )}
-            />
-        )}
-    </View>
+        </View>
     );
 };
 
