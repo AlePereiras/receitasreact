@@ -1,15 +1,35 @@
-import { ScrollView, Text, View, TextInput, Image, } from 'react-native';
+import { ScrollView, Text, View, TextInput, Image, Alert, } from 'react-native';
 import { Appbar, PaperProvider, Button, } from 'react-native-paper';
 import { useFonts, Roboto_400Regular, Roboto_500Medium } from "@expo-google-fonts/roboto";
 import { useState } from 'react';
+import urlconfig from "./config.json"
 
 const AdicionarReceita = () => {
-
+    
     let [fontsLoaded, fontError] = useFonts({
         Roboto_400Regular,
         Roboto_500Medium,
     });
-
+    
+    const CriarReceita = async() => {
+        const response = await fetch(`${urlconfig.urlDesenvolvimento}/receitas`, {
+            method: 'POST',
+            headers: {'Content-type': 'application/json'},
+            body: JSON.stringify({
+                imagem: 'https://raw.githubusercontent.com/AlePereiras/Imagens_de_receitas/main/panqueca.jpeg',
+                nomeReceita: receita,
+                descricao: descricao,
+                ingredientes: ingredientes,
+                modoFazer: modoFazer
+            })
+        });
+        if(response.status==201){
+          return Alert.alert('SUA RECEITA FOI CRIADA')
+        }
+    }
+    
+    
+    const [receita, setReceita] = useState('');
     const [descricao, setDescricao] = useState('');
     const [ingredientes, setIngredientes] = useState('');
     const [modoFazer, setModoFazer] = useState('');
@@ -72,7 +92,10 @@ const AdicionarReceita = () => {
 
                         }}>Nome da receita*</Text>
 
-                        <TextInput style={{
+                        <TextInput value={receita}
+                         onChangeText={(text) =>{
+                            setReceita(text) 
+                        }} style={{
                             width: 290,
                             height: 35,
                             borderColor: '#F88B62',
@@ -81,7 +104,8 @@ const AdicionarReceita = () => {
                             marginTop: 10,
                             fontSize: 12,
                             fontFamily: 'Roboto_400Regular',
-                            paddingLeft: 10
+                            paddingLeft: 10,
+
                         }} />
 
                         <Text style={{
@@ -91,7 +115,8 @@ const AdicionarReceita = () => {
                             marginTop: 10,
                         }}>Descrição*</Text>
 
-                        <TextInput
+                        <TextInput 
+                            
                             multiline={true}
                             value={descricao}
                             onChangeText={(newText) => setDescricao(newText)} onContentSizeChange={onContentSizeChange(descricao, setHeightDescricao)}
@@ -156,7 +181,10 @@ const AdicionarReceita = () => {
 
                     <View style={{ alignItems: 'center', justifyContent: 'center', marginTop: 10 }}>
 
-                        <Button mode="contained" buttonColor='#F88B62' textColor='#33241F' style={{ borderRadius: 6, }} >
+                        <Button onPress={() =>{
+                            CriarReceita()
+                        }} 
+                        mode="contained" buttonColor='#F88B62' textColor='#33241F' style={{ borderRadius: 6, }} >
                             Adicionar
                         </Button>
 

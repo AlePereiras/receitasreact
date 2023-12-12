@@ -1,9 +1,10 @@
-import { Image, ScrollView, Text, View, } from 'react-native';
-import { Button, IconButton, Modal, Portal, Provider } from 'react-native-paper';
+import { FlatList, Image, ScrollView, Text, View, } from 'react-native';
+import { ActivityIndicator, Button, IconButton, } from 'react-native-paper';
 import { useFonts, Roboto_400Regular, Roboto_500Medium, Roboto_700Bold } from "@expo-google-fonts/roboto";
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
-function PerfilDaTela() {
+
+const PuxarReceita = () => {
 
     let [fontsLoaded, fontError] = useFonts({
         Roboto_400Regular,
@@ -12,10 +13,32 @@ function PerfilDaTela() {
 
     });
 
+    const [receitas, setReceitas] = useState([]);
+    const [isLoading, setLoading] = useState(false);
+
+    const getReceitas = async () => {
+        try {
+            const response = await fetch(`${urlconfig.urlDesenvolvimento}/receitas`);
+            const json = await response.json();
+            setReceitas(json);
+        } catch (error) {
+            console.error(error);
+        }finally{
+            setLoading(false);
+        }
+    };
+
+    useEffect(() => {
+        getReceitas();
+    }, []);
+
     if (!fontsLoaded && !fontError) {
         return null;
     }
 
+
+function PerfilDaTela({ imagem, nomeReceita}) {
+    
     return (
 
         <ScrollView>
@@ -134,12 +157,28 @@ function PerfilDaTela() {
                 }}>Favoritos</Button>
 
             </View>
-
-            
         </ScrollView>
     )
-
 }
 
-export default PerfilDaTela;
+return(
+
+    <View style={{ flex: 1, paddingHorizontal: 24}}>
+        {isLoading ? (
+            <ActivityIndicator/>
+        ) : (
+            
+            <FlatList showsVerticalScrollIndicator={false} 
+            data={receitas}
+            keyExtractor={({ id }) => id}
+            renderItem={({ item, index}) => (
+                <PerfilDaTela id={item.id} key={index} imagem={item.imagem} nomeReceita={item.nomeReceita}/>
+            )}
+            />
+        )}
+    </View>
+    );
+};
+
+export default PuxarReceita;
 
