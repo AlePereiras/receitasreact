@@ -114,7 +114,15 @@ const PuxarReceita = () => {
                             }}>{nomeReceita}</Text>
                         </View>
 
-                        <View>
+                        <View style={{flexDirection:'row'}}>
+
+                        <IconButton style={{marginLeft:30}}
+                                icon="pencil-outline"
+                                size={40}
+                                iconColor="#F78B63"
+                                
+                            />
+                            
                             <IconButton style={{}}
                                 icon="trash-can-outline"
                                 size={40}

@@ -54,8 +54,6 @@ const Receita = () => {
         getReceitas();
     }, []);
 
-
-
     function CardReceita({ imagem, nomeReceita, navigation, id }) {
 
         return (
