@@ -14,7 +14,7 @@ function IngredienteReceita({ route }) {
             const json = await response.json()
             console.log(json)
             setReceita(json);
-            setDescricao(json.descricao)
+            // setDescricao(json.descricao)
         } catch (error) {
             console.error(error);
         } finally {

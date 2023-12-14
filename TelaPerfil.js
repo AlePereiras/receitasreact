@@ -114,15 +114,15 @@ const PuxarReceita = () => {
                             }}>{nomeReceita}</Text>
                         </View>
 
-                        <View style={{flexDirection:'row'}}>
+                        <View style={{ flexDirection: 'row' }}>
 
-                        <IconButton style={{marginLeft:30}}
+                            <IconButton style={{ marginLeft: 30 }}
                                 icon="pencil-outline"
                                 size={40}
                                 iconColor="#F78B63"
-                                
+                                onPress={() => navigation.navigate('EditarReceita', { id: id })}
                             />
-                            
+
                             <IconButton style={{}}
                                 icon="trash-can-outline"
                                 size={40}
