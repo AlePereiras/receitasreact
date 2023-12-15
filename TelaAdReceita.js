@@ -4,6 +4,7 @@ import { useFonts, Roboto_400Regular, Roboto_500Medium } from "@expo-google-font
 import { useState } from 'react';
 import urlconfig from "./config.json"
 
+{/* POST DA RECEITA */ }
 const AdicionarReceita = () => {
 
     let [fontsLoaded, fontError] = useFonts({
@@ -28,7 +29,6 @@ const AdicionarReceita = () => {
         }
     }
 
-
     const [receita, setReceita] = useState('');
     const [descricao, setDescricao] = useState('');
     const [ingredientes, setIngredientes] = useState('');
@@ -44,6 +44,8 @@ const AdicionarReceita = () => {
     if (!fontsLoaded && !fontError) {
         return null;
     }
+
+    {/* STYLE */ }
     return (
         <PaperProvider>
             <ScrollView contentContainerStyle={{ flexGrow: 1, justifyContent: 'center' }}>

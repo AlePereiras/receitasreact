@@ -5,6 +5,7 @@ import { Card, IconButton } from "react-native-paper";
 import urlconfig from "./config.json";
 import { useNavigation } from "@react-navigation/native";
 
+{/* GET PUXANDO A RECEITA ATRAVÉS DO INGREDIENTE DELA */ }
 const BarraPesquisar = () => {
 
     let [fontsLoaded, fontError] = useFonts({
@@ -38,6 +39,7 @@ const BarraPesquisar = () => {
         return null;
     }
 
+    {/* CARD DA RECEITA */ }
     function CardReceita({ imagem, nomeReceita, navigation, id }) {
 
         return (
@@ -129,6 +131,7 @@ const BarraPesquisar = () => {
                 </View>
             </View>
 
+            {/* FLATLIST */}
             {isLoading ? (
                 <Text style={{ color: '#33241F', fontSize: 20, fontFamily: 'Roboto_400Regular', }}>Carregando...</Text>
             ) : (

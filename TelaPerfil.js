@@ -5,7 +5,7 @@ import { useEffect, useState } from 'react';
 import urlconfig from "./config.json"
 import { useNavigation } from '@react-navigation/native';
 
-
+{/* GET PARA PUXAR OS DADOS DA RECEITA*/ }
 const PuxarReceita = () => {
 
     let [fontsLoaded, fontError] = useFonts({
@@ -35,6 +35,7 @@ const PuxarReceita = () => {
         getReceitas();
     }, []);
 
+    {/* DELELE DA RECEITA */ }
     const HandleDeleteReceita = async (id) => {
         try {
             const response = await fetch(`${urlconfig.urlDesenvolvimento}/receitas/${id}`, {
@@ -80,6 +81,7 @@ const PuxarReceita = () => {
             );
         };
 
+        {/* STYLE */ }
         return (
 
             <View style={{
@@ -253,6 +255,7 @@ const PuxarReceita = () => {
                 }}>Favoritos</Button>
             </View>
 
+            {/* FLATLIST */}
             {isLoading ? (
                 <ActivityIndicator />
             ) : (

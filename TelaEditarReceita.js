@@ -4,6 +4,7 @@ import { Button } from 'react-native-paper';
 import { useFonts, Roboto_400Regular, Roboto_500Medium } from "@expo-google-fonts/roboto";
 import urlconfig from "./config.json"
 
+{/* GET DA RECEITA PUXANDO OS DADOS DA RECEITA QUE FOI "CLICADA" */ }
 const Editar = ({ route }) => {
 
     let [fontsLoaded, fontError] = useFonts({
@@ -27,6 +28,7 @@ const Editar = ({ route }) => {
         }
     }
 
+    {/* PUT DA RECEITA */ }
     const AtualizarReceita = async () => {
         try {
             const response = await fetch(`${urlconfig.urlDesenvolvimento}/receitas/${id}`, {

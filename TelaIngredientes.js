@@ -1,9 +1,10 @@
 import { ActivityIndicator, Text, View, Image, ScrollView, } from "react-native";
-import { Appbar, IconButton, PaperProvider, } from "react-native-paper";
+import { IconButton, } from "react-native-paper";
 import { useState, useEffect } from "react";
 import urlconfig from "./config.json";
 import { useFonts, Roboto_400Regular, Roboto_500Medium, Roboto_300Light } from "@expo-google-fonts/roboto";
 
+{/* GET DA RECEITA PUXANDO OS DADOS DELA */ }
 function IngredienteReceita({ route }) {
 
     const { id } = route.params;
@@ -39,6 +40,7 @@ function IngredienteReceita({ route }) {
             return null;
         }
 
+        {/* STYLE */ }
         return (
 
             <ScrollView style={{}}>
@@ -139,31 +141,3 @@ function IngredienteReceita({ route }) {
 export default IngredienteReceita;
 
 
-// const IngredienteReceita = ({route}) => {
-
-// const { id } = route.params.id;
-
-//     return(
-//         <View  style={{flex:1, }}>
-//         <Text>Tudo da Receita</Text>
-//         <Image>{JSON.stringify(imagem)}</Image>
-//         </View>
-//     )
-// }
-
-{/* <List.Item 
-        title="Descrição:"
-        titleStyle={{
-            fontFamily: 'Roboto_500Medium', 
-            color: '#33241F', 
-            top: 30,
-            fontSize: 16,
-        }}
-        description={descricao}
-        descriptionStyle={{
-            top: 30, 
-            fontFamily: 'Roboto_300Light', 
-            color: '#33241F',
-            fontSize: 16,
-        }} 
-        /> */}
