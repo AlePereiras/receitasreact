@@ -1,5 +1,4 @@
 import { ActivityIndicator, Text, View, Image, ScrollView, } from "react-native";
-import { IconButton, } from "react-native-paper";
 import { useState, useEffect } from "react";
 import urlconfig from "./config.json";
 import { useFonts, Roboto_400Regular, Roboto_500Medium, Roboto_300Light } from "@expo-google-fonts/roboto";
@@ -45,20 +44,15 @@ function IngredienteReceita({ route }) {
 
             <ScrollView style={{}}>
 
-                <View style={{ flexDirection: 'row', justifyContent: 'center', alignItems: 'center' }}>
+                <View style={{ justifyContent: 'center', alignItems: 'center' }}>
                     <Text style={{
                         fontSize: 16,
                         fontFamily: 'Roboto_400Regular',
                         color: '#33241F',
                         marginTop: 10,
-                        width: 280,
+                        width: 310,
                     }}>{nomeReceita}</Text>
 
-                    <IconButton
-                        icon="cards-heart-outline"
-                        size={40}
-                        iconColor="#33241F"
-                    />
                 </View>
 
                 <View style={{ justifyContent: 'center', alignItems: 'center' }}>

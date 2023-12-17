@@ -139,11 +139,11 @@ const PuxarReceita = () => {
     }
 
     return (
-        <View style={{ flex: 1 }}>
+        <View style={{ flex: 1, }}>
             <View style={{
                 flexDirection: 'row',
                 backgroundColor: '#F88B62',
-                justifyContent: 'space-around'
+                justifyContent: 'center',
 
             }}>
                 <Text style={{
@@ -151,16 +151,9 @@ const PuxarReceita = () => {
                     color: '#33241F',
                     marginTop: 15,
                     fontFamily: 'Roboto_700Bold',
-                    paddingLeft: 99,
 
                 }}>Receita na Mão</Text>
 
-                <IconButton
-                    icon="dots-vertical"
-                    size={40}
-                    iconColor="#33241F"
-                >
-                </IconButton>
             </View>
 
             <View style={{
@@ -169,7 +162,6 @@ const PuxarReceita = () => {
                 backgroundColor: '#F88B62',
                 height: 90,
                 flexDirection: 'row',
-
 
             }}>
 
@@ -181,6 +173,7 @@ const PuxarReceita = () => {
                     borderWidth: 2,
                     marginLeft: 30,
                     position: 'absolute',
+
                 }} source={{
                     uri: 'https://storage.googleapis.com/production-hostgator-brasil-v1-0-4/194/301194/dia9bUQT/0157b2206df740ccaaf4075c1d368ed9'
                 }}>
@@ -212,7 +205,7 @@ const PuxarReceita = () => {
                     fontFamily: 'Roboto_400Regular',
                     color: "#33241F",
                     marginLeft: 20,
-                }}>Fulano de Tal
+                }}>Usuário 1
 
                 </Text>
 
@@ -243,16 +236,17 @@ const PuxarReceita = () => {
                     width: 205,
                 }}>Suas Receitas</Button>
 
-                <Button mode="text" textColor='#33241F' contentStyle={{
-                    borderWidth: 1,
-                    borderTopColor: '#FFFF',
-                    borderBottomColor: '#33241F',
-                    borderRightColor: '#33241F',
+                <Button mode="text" textColor='#33241F' onPress={() => navigation.navigate('Favorito')}
+                    contentStyle={{
+                        borderWidth: 1,
+                        borderTopColor: '#FFFF',
+                        borderBottomColor: '#33241F',
+                        borderRightColor: '#33241F',
 
-                }} style={{
-                    borderRadius: 0,
-                    width: 205
-                }}>Favoritos</Button>
+                    }} style={{
+                        borderRadius: 0,
+                        width: 205
+                    }}>Favoritos</Button>
             </View>
 
             {/* FLATLIST */}

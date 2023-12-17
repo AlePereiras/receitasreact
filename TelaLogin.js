@@ -3,7 +3,7 @@ import { useFonts, Roboto_400Regular, Roboto_500Medium, } from '@expo-google-fon
 import { useNavigation } from "@react-navigation/native";
 
 
-function LoginConta () {
+function LoginConta() {
 
     const navigation = useNavigation()
 
@@ -17,7 +17,7 @@ function LoginConta () {
         return null;
     }
 
-    return(
+    return (
 
         <View style={{
             backgroundColor: '#33241F',
@@ -40,6 +40,23 @@ function LoginConta () {
                 marginTop: 16,
 
             }}>
+
+                <Text style={{
+                    color: '#F88B62',
+                    fontSize: 15,
+                    fontFamily: 'Roboto_500Medium',
+
+                }}>Nome de Usuário:</Text>
+
+                <TextInput style={{
+                    width: 250,
+                    height: 34,
+                    backgroundColor: '#C48B76',
+                    borderRadius: 4,
+                    paddingLeft: 10,
+                    color: '#FFFF',
+
+                }}></TextInput>
 
                 <Text style={{
                     color: '#F88B62',
@@ -74,7 +91,7 @@ function LoginConta () {
                     borderRadius: 4,
                     paddingLeft: 10,
                     color: '#FFFF',
-                    
+
                 }}></TextInput>
 
             </View>

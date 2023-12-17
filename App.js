@@ -1,10 +1,10 @@
-import TelaCadastramento from "./TelaCadastramento";
 import TelaReceitas from "./TelaReceitas";
 import TelaIngredientes from './TelaIngredientes';
 import TelaPesquisar from "./TelaPesquisar";
 import TelaAdReceita from "./TelaAdReceita";
 import PerfilDaTela from "./TelaPerfil";
 import TelaLogin from "./TelaLogin";
+import TelaFavoritos from "./TelaFavoritos";
 import TelaEditarReceita from "./TelaEditarReceita";
 import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
@@ -49,6 +49,14 @@ function App() { //HomeStack
                         }} />
 
                     <Stack.Screen name="EditarReceita" component={TelaEditarReceita}
+                        options={{
+                            title: "Receita na Mão",
+                            headerShadowVisible: false,
+                            headerStyle: { backgroundColor: '#F78B63' },
+                            headerTintColor: '#33241F'
+                        }} />
+
+                    <Stack.Screen name="Favorito" component={TelaFavoritos}
                         options={{
                             title: "Receita na Mão",
                             headerShadowVisible: false,
@@ -128,10 +136,3 @@ function TabPrincipal() {
 
 export default App;
 
-// export default TelaLogin;
-
-{/* <Stack.Screen name="Login" component={TelaLogin} options={{
-                        title: '', 
-                        headerShadowVisible: false, 
-                        headerStyle: {backgroundColor: '#33241F', }, 
-                    headerTintColor: '#33241F'}} /> */}

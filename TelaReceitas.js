@@ -35,6 +35,7 @@ const Receita = () => {
 
     const [isLoading, setLoading] = useState(false);
     const [receitas, setReceitas] = useState([]);
+    const [favoritos, setFavoritos] = useState([])
     const navigation = useNavigation()
 
     const getReceitas = async () => {
@@ -50,12 +51,28 @@ const Receita = () => {
         }
     };
 
+    const mudarFavorito = (id) => {
+        const isFavorito = favoritos.includes(id);
+        if (isFavorito) {
+            setFavoritos((prevFavoritos) => prevFavoritos.filter((favId) => favId !== id));
+        } else {
+            setFavoritos((prevFavoritos) => [...prevFavoritos, id]);
+        }
+    }
+
+    // const toggleFavorito = (id) => {
+    //     mudarFavorito(id); // Usa a função que já estava definida
+    //     navigation.navigate('Favorito'); // Navega para a tela de Favoritos após marcar/desmarcar como favorito
+    // };
+
     useEffect(() => {
         getReceitas();
     }, []);
 
     {/* CARD DA RECEITA */ }
     function CardReceita({ imagem, nomeReceita, navigation, id }) {
+
+        const isFavorito = favoritos.includes(id);
 
         return (
             <ScrollView>
@@ -95,9 +112,10 @@ const Receita = () => {
 
                             <View>
                                 <IconButton
-                                    icon="cards-heart-outline"
+                                    icon={isFavorito ? 'cards-heart' : 'cards-heart-outline'}
                                     size={40}
                                     iconColor="#F78B63"
+                                    onPress={() => mudarFavorito(id)}
                                 />
                             </View>
 
@@ -131,7 +149,12 @@ const Receita = () => {
                     data={receitas}
                     keyExtractor={({ id }) => id}
                     renderItem={({ item, index }) => (
-                        <CardReceita navigation={navigation} id={item.id} key={index} imagem={item.imagem} nomeReceita={item.nomeReceita} />
+                        <CardReceita
+                            navigation={navigation}
+                            id={item.id}
+                            key={index}
+                            imagem={item.imagem}
+                            nomeReceita={item.nomeReceita} />
                     )} />
             )}
         </View>
