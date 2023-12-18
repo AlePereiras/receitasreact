@@ -3,7 +3,7 @@ import TelaIngredientes from './TelaIngredientes';
 import TelaPesquisar from "./TelaPesquisar";
 import TelaAdReceita from "./TelaAdReceita";
 import PerfilDaTela from "./TelaPerfil";
-import TelaLogin from "./TelaLogin";
+import TelaCadastro from "./TelaCadastro";
 import TelaFavoritos from "./TelaFavoritos";
 import TelaEditarReceita from "./TelaEditarReceita";
 import { NavigationContainer } from "@react-navigation/native";
@@ -25,9 +25,9 @@ function App() { //HomeStack
                 <StatusBar />
                 <Stack.Navigator screenOptions={{
 
-                }} initialRouteName="Login">
+                }} initialRouteName="Cadastro">
 
-                    <Stack.Screen name="Login" component={TelaLogin}
+                    <Stack.Screen name="Cadastro" component={TelaCadastro}
                         options={{
                             headerShown: false,
 

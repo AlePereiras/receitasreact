@@ -32,7 +32,7 @@ function LoginConta() {
                 color: '#F88B62',
                 fontFamily: 'Roboto_500Medium',
 
-            }}>Login
+            }}>Cadastrar Conta
 
             </Text>
 
