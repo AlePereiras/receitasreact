@@ -6,6 +6,7 @@ import PerfilDaTela from "./TelaPerfil";
 import TelaCadastro from "./TelaCadastro";
 import TelaFavoritos from "./TelaFavoritos";
 import TelaEditarReceita from "./TelaEditarReceita";
+import IngredientesFavoritos from "./IngredientesFavoritos";
 import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
@@ -57,6 +58,14 @@ function App() { //HomeStack
                         }} />
 
                     <Stack.Screen name="Favorito" component={TelaFavoritos}
+                        options={{
+                            title: "Receita na Mão",
+                            headerShadowVisible: false,
+                            headerStyle: { backgroundColor: '#F78B63' },
+                            headerTintColor: '#33241F'
+                        }} />
+
+                    <Stack.Screen name="FavIngredientes" component={IngredientesFavoritos}
                         options={{
                             title: "Receita na Mão",
                             headerShadowVisible: false,

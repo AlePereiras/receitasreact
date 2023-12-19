@@ -1,26 +1,27 @@
-import { FlatList, Image, Alert, Text, View, ScrollView, } from 'react-native';
-import { ActivityIndicator, Button, IconButton, Card } from 'react-native-paper';
-import { useFonts, Roboto_400Regular, Roboto_500Medium, Roboto_700Bold } from "@expo-google-fonts/roboto";
-import { useEffect, useState } from 'react';
-import { useNavigation } from '@react-navigation/native';
+import React, { useEffect, useState } from "react";
+import { Text, Card, IconButton } from 'react-native-paper';
+import { View, FlatList, ActivityIndicator, ScrollView } from "react-native";
+import { useFonts, Roboto_400Regular, Roboto_500Medium } from "@expo-google-fonts/roboto";
+import { useNavigation, } from "@react-navigation/native";
 import urlconfig from "./config.json"
 
-const Favoritos = () => {
+{/* GET PARA PUXAR OS FAVORITOS */ }
+const Favorito = () => {
 
     let [fontsLoaded, fontError] = useFonts({
         Roboto_400Regular,
         Roboto_500Medium,
-        Roboto_700Bold,
 
     });
 
     const [isLoading, setLoading] = useState(false);
-    const [favoritos, setFavoritos] = useState([]);
-    const navigation = useNavigation();
+    const [favoritos, setFavoritos] = useState([])
+    const navigation = useNavigation()
 
-    const getFavoritos = async () => {
+    const getReceitas = async () => {
         try {
             const response = await fetch(`${urlconfig.urlDesenvolvimento}/favoritos`);
+            // console.log(response)
             const json = await response.json();
             setFavoritos(json);
         } catch (error) {
@@ -31,20 +32,27 @@ const Favoritos = () => {
     };
 
     useEffect(() => {
-        getFavoritos();
-    }, [])
+        getReceitas();
+    }, []);
 
     if (!fontsLoaded && !fontError) {
         return null;
     }
 
+    {/* CARD DA RECEITA */ }
     function CardReceita({ imagem, nomeReceita, navigation, id }) {
+
+        const [isFavorito, setFavorito] = useState(false);
+
+        const mudarFavorito = () => {
+            setFavorito((prevFavorito) => !prevFavorito);
+        };
 
         return (
             <ScrollView>
                 <View>
                     <Card
-                        onPress={() => navigation.navigate('Receita', { id: id })}
+                        onPress={() => navigation.navigate('FavIngredientes', { id: id })}
                         style={{
                             backgroundColor: '#33241F',
                             borderBottomLeftRadius: 4,
@@ -76,6 +84,17 @@ const Favoritos = () => {
                                     }} >{nomeReceita}</Text>
                             </View>
 
+                            <View>
+                                <IconButton
+                                    icon={isFavorito ? 'cards-heart-outline' : 'cards-heart'}
+                                    size={40}
+                                    iconColor="#F78B63"
+                                    onPress={() => {
+                                        mudarFavorito();
+                                    }}
+                                />
+                            </View>
+
                         </View>
 
                     </Card>
@@ -85,42 +104,44 @@ const Favoritos = () => {
         )
     }
 
+    {/* FLATLIST */ }
     return (
         <View style={{ flex: 1, paddingHorizontal: 24 }}>
             {isLoading ? (
                 <ActivityIndicator />
             ) : (
-                <FlatList
-                    showsVerticalScrollIndicator={false}
-                    ListHeaderComponent={() => (
+
+
+                <FlatList showsVerticalScrollIndicator={false}
+                    ListHeaderComponent={() =>
                         <View style={{ paddingTop: 24 }}>
-                            <Text
-                                style={{
-                                    fontSize: 20,
-                                    color: '#33241F',
-                                    fontFamily: 'Roboto_400Regular',
-                                }}
-                            >
-                                Favoritos
-                            </Text>
-                        </View>
-                    )}
+                            <Text style={{
+                                fontSize: 20,
+                                color: '#33241F',
+                                fontFamily: 'Roboto_400Regular',
+                            }}>Favoritos
+                            </Text></View>}
+
                     data={favoritos}
-                    keyExtractor={(id) => id.toString()}
-                    renderItem={({ item }) => (
+                    keyExtractor={({ id }) => id}
+                    renderItem={({ item, index }) => (
                         <CardReceita
-                            key={index}
-                            id={item.id}
-                            imagem={item.imagem}
-                            nomeReceita={item.nomeReceita}
                             navigation={navigation}
-                        />
-                    )}
-                />
+                            id={item.id}
+                            key={index}
+                            imagem={item.imagem}
+                            nomeReceita={item.nomeReceita} />
+                    )} />
             )}
         </View>
     );
 };
 
+export default Favorito;
 
-export default Favoritos;
+
+
+
+
+
+
