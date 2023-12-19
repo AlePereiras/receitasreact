@@ -10,7 +10,7 @@ function IngredienteReceita({ route }) {
     const [favorito, setFavorito] = useState(null);
     const getReceita = async () => {
         try {
-            const response = await fetch(`${urlconfig.urlDesenvolvimento}/favoritos/${id}`);
+            const response = await fetch(`${urlconfig.urlProducao}/favoritos/${id}`);
             const json = await response.json()
             console.log(json)
             setFavorito(json);

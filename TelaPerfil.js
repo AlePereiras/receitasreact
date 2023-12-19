@@ -21,7 +21,7 @@ const PuxarReceita = () => {
 
     const getReceitas = async () => {
         try {
-            const response = await fetch(`${urlconfig.urlDesenvolvimento}/receitas`);
+            const response = await fetch(`${urlconfig.urlProducao}/receitas`);
             const json = await response.json();
             setReceitas(json);
         } catch (error) {
@@ -38,7 +38,7 @@ const PuxarReceita = () => {
     {/* DELELE DA RECEITA */ }
     const HandleDeleteReceita = async (id) => {
         try {
-            const response = await fetch(`${urlconfig.urlDesenvolvimento}/receitas/${id}`, {
+            const response = await fetch(`${urlconfig.urlProducao}/receitas/${id}`, {
                 method: 'DELETE',
                 headers: { 'Content-type': 'application/json' }
             });

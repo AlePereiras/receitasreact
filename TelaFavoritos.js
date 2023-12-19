@@ -20,7 +20,7 @@ const Favorito = () => {
 
     const getReceitas = async () => {
         try {
-            const response = await fetch(`${urlconfig.urlDesenvolvimento}/favoritos`);
+            const response = await fetch(`${urlconfig.urlProducao}/favoritos`);
             // console.log(response)
             const json = await response.json();
             setFavoritos(json);

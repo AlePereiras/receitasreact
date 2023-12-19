@@ -39,7 +39,7 @@ const Receita = () => {
 
     const getReceitas = async () => {
         try {
-            const response = await fetch(`${urlconfig.urlDesenvolvimento}/receitas`);
+            const response = await fetch(`${urlconfig.urlProducao}/receitas`);
             // console.log(response)
             const json = await response.json();
             setReceitas(json);

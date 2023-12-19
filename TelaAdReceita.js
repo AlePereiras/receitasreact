@@ -13,7 +13,7 @@ const AdicionarReceita = () => {
     });
 
     const CriarReceita = async () => {
-        const response = await fetch(`${urlconfig.urlDesenvolvimento}/receitas`, {
+        const response = await fetch(`${urlconfig.urlProducao}/receitas`, {
             method: 'POST',
             headers: { 'Content-type': 'application/json' },
             body: JSON.stringify({

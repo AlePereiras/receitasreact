@@ -31,7 +31,7 @@ const Editar = ({ route }) => {
     {/* PUT DA RECEITA */ }
     const AtualizarReceita = async () => {
         try {
-            const response = await fetch(`${urlconfig.urlDesenvolvimento}/receitas/${id}`, {
+            const response = await fetch(`${urlconfig.urlProducao}/receitas/${id}`, {
                 method: 'PUT',
                 headers: {
                     'Content-Type': 'application/json',

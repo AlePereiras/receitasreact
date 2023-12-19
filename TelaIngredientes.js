@@ -10,7 +10,7 @@ function IngredienteReceita({ route }) {
     const [receita, setReceita] = useState(null);
     const getReceita = async () => {
         try {
-            const response = await fetch(`${urlconfig.urlDesenvolvimento}/receitas/${id}`);
+            const response = await fetch(`${urlconfig.urlProducao}/receitas/${id}`);
             const json = await response.json()
             console.log(json)
             setReceita(json);

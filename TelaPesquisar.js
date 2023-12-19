@@ -20,7 +20,7 @@ const BarraPesquisar = () => {
     useEffect(() => {
         if (ingredientes) {
             setIsLoading(true);
-            fetch(`${urlconfig.urlDesenvolvimento}/receitas?ingredientes=${ingredientes}`)
+            fetch(`${urlconfig.urlProducao}/receitas?ingredientes=${ingredientes}`)
                 .then((response) => response.json())
                 .then((data) => {
                     setReceitas(data);
