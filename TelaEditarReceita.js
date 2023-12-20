@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { ScrollView, Text, View, Image, TextInput, } from 'react-native';
+import { ScrollView, Text, View, Image, TextInput, Alert, } from 'react-native';
 import { Button } from 'react-native-paper';
 import { useFonts, Roboto_400Regular, Roboto_500Medium } from "@expo-google-fonts/roboto";
 import urlconfig from "./config.json"
@@ -16,7 +16,7 @@ const Editar = ({ route }) => {
 
     const GetReceitaId = async () => {
         try {
-            const response = await fetch(`${urlconfig.urlDesenvolvimento}/receitas/${id}`);
+            const response = await fetch(`${urlconfig.urlProducao}/receitas/${id}`);
             const data = await response.json();
 
             setReceita(data.nomeReceita || '');
@@ -46,6 +46,8 @@ const Editar = ({ route }) => {
 
             if (!response.ok) {
                 throw new Error('Erro ao atualizar a receita');
+            } else {
+                return Alert.alert('SUA RECEITA FOI ATUALIZADA')
             }
 
         } catch (error) {
@@ -69,6 +71,7 @@ const Editar = ({ route }) => {
     const onContentSizeChange = (conteudo, setHeigth) => (e) => {
         setHeigth(Math.max(40, e.nativeEvent.contentSize.height));
     }
+
     if (!fontsLoaded && !fontError) {
         return null;
     }
